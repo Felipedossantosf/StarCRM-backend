@@ -14,6 +14,7 @@ namespace LogicaNegocio.Entidades
     public class Usuario : IValidable
     {
         public int UserId { get; set; }
+        public string Username { get; set; }
 
         [Required]
         [EmailAddress]
@@ -28,7 +29,9 @@ namespace LogicaNegocio.Entidades
 
         [Required]
         public string Rol { get; set; }
-        public string FullName { get; set; }
+        public string Nombre { get; set; }
+
+        public string Apellido { get; set; }
 
         public DateTime FechaCreacion { get; set; } = DateTime.Now;
         public bool Activo { get; set; } = true;

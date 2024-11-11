@@ -21,11 +21,11 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
 
         DTOUsuarioLogin ILogin.Login(DTOUsuarioLogin usuario)
         {
-            Usuario usuarioBuscado = RepoUsuarios.IniciarSesion(usuario.Email, usuario.Password);
+            Usuario usuarioBuscado = RepoUsuarios.IniciarSesion(usuario.Username, usuario.Password);
             if(usuarioBuscado != null)
             {
                 usuario.Id = usuarioBuscado.UserId;
-                usuario.FullName = usuarioBuscado.FullName;
+                usuario.Username = usuarioBuscado.Username;
             };
             return usuario;
         }
