@@ -34,7 +34,7 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
             {
                 nuevoUsuario.validar();
                 RepoUsuarios.Add(nuevoUsuario);
-                usuario.Id = nuevoUsuario.UserId;
+                usuario.UserId = nuevoUsuario.UserId;
             }catch (Exception ex)
             {
                 throw new Exception(ex.Message);

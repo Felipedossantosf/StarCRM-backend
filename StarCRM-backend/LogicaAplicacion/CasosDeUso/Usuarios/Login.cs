@@ -19,15 +19,19 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
             RepoUsuarios = repoUsuarios;
         }
 
-        DTOUsuarioLogin ILogin.Login(DTOUsuarioLogin usuario)
+        DTOUsuarioLogin ILogin.Login(DTOLoginRequest dtoLoginRequest)
         {
-            Usuario usuarioBuscado = RepoUsuarios.IniciarSesion(usuario.Username, usuario.Password);
-            if(usuarioBuscado != null)
+            Usuario usuarioBuscado = RepoUsuarios.IniciarSesion(dtoLoginRequest.username, dtoLoginRequest.password);
+            DTOUsuarioLogin dtoUsuario = new DTOUsuarioLogin();
+
+
+            if (usuarioBuscado != null)
             {
-                usuario.Id = usuarioBuscado.UserId;
-                usuario.Username = usuarioBuscado.Username;
+                dtoUsuario.Id = usuarioBuscado.UserId;
+                dtoUsuario.Username = usuarioBuscado.Username;
+                dtoUsuario.Password = usuarioBuscado.Password;
             };
-            return usuario;
+            return dtoUsuario;
         }
     }
 }

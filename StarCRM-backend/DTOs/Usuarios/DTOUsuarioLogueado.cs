@@ -8,7 +8,7 @@ namespace DTOs.Usuarios
 {
     public class DTOUsuarioLogueado
     {
-        public string FullName { get; set; }
+        public string Username { get; set; }
         public string Token { get; set; }
     }
 }

@@ -40,12 +40,19 @@ namespace AccesoDatos.Repositorios
 
         public Usuario FindById(int? id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (id == null) throw new UsuarioException("Id usario no puede ser nulo");
+                return _db.Usuarios.SingleOrDefault(u => u.UserId == id);                            
+            }catch(Exception ex)
+            {
+                throw new UsuarioException($"Error: {ex.Message}");
+            }
         }
 
-        public Usuario IniciarSesion(string email, string password)
+        public Usuario IniciarSesion(string username, string password)
         {
-            var logueado = _db.Usuarios.Where(u => u.Email == email && u.Password == password).FirstOrDefault();
+            var logueado = _db.Usuarios.Where(u => u.Username == username && u.Password == password).FirstOrDefault();
             if(logueado != null)
             {
                 return logueado;
