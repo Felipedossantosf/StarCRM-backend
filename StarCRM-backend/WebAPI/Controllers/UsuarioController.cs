@@ -103,17 +103,18 @@ namespace WebAPI.Controllers
         {
             if (dtoLoginRequest == null) return BadRequest();
             DTOUsuarioLogin dtoUsuario = LoginUsuario.Login(dtoLoginRequest);
-            if (dtoUsuario == null)
+            if (String.IsNullOrEmpty(dtoUsuario.Username))
             {
-                return NotFound($"Usuario no encontrado: {dtoLoginRequest.username}");
+                return NotFound("Usuario no encontrado, credenciales incorrectas.");
             }
             
             DTOUsuarioLogueado dtoUsuarioLogueado = new DTOUsuarioLogueado()
-            {
-                Username = dtoUsuario.Username,
-                Token = TokenManager.CrearToken(dtoUsuario)
-            };
-            return Ok(dtoUsuarioLogueado);                        
+            {   
+                Username = dtoUsuario.Username,    
+                Token = TokenManager.CrearToken(dtoUsuario)        
+            };    
+            return Ok(dtoUsuarioLogueado);    
+                           
         }
 
         // PUT api/<UsuarioController>/5

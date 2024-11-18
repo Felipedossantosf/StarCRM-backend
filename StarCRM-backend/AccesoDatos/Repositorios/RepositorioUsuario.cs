@@ -52,12 +52,21 @@ namespace AccesoDatos.Repositorios
 
         public Usuario IniciarSesion(string username, string password)
         {
-            var logueado = _db.Usuarios.Where(u => u.Username == username && u.Password == password).FirstOrDefault();
-            if(logueado != null)
+            try
+            {
+                return _db.Usuarios.Where(u => u.Username == username && u.Password == password).FirstOrDefault();
+            }catch(Exception e)
+            {
+                throw new UsuarioException($"Error: {e.Message}");
+            }
+
+            /*
+             * var logueado = 
+             * if(logueado != null)
             {
                 return logueado;
             }
-            return null;
+            return null;*/
         }
 
         public void Remove(Usuario obj)
