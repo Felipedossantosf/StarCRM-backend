@@ -1,5 +1,6 @@
 ﻿using DTOs.Usuarios;
 using LogicaAplicacion.Interfaces.Usuarios;
+using LogicaNegocio.Excepciones;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -79,14 +80,18 @@ namespace WebAPI.Controllers
             {
                 if (dtoUsuario == null)
                 {
-                    return BadRequest();
+                    return BadRequest("El cuerpo de la solicitud no es válido");
+                }
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState); // Devuelve las validaciones del modelo
                 }
                 dtoUsuario = AltaUsuario.Registrar(dtoUsuario);
                 return CreatedAtRoute("FindByIdUsuario", new { Id = dtoUsuario.UserId }, dtoUsuario);
             }
             catch (Exception ex)
             {
-                return StatusCode(500);
+                return StatusCode(500, new { Message = "Ocurrió un error al registrar el usuario", Details = ex.Message });
             }
         }
 

@@ -21,6 +21,16 @@ namespace AccesoDatos
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Usuario>()
+                .HasIndex(u => u.Username)
+                .IsUnique()
+                .HasName("Index_Username");
+
+            modelBuilder.Entity<Usuario>()
+                .HasIndex(u => u.Email)
+                .IsUnique()
+                .HasName("Index_Email");
+
             base.OnModelCreating(modelBuilder);
         }
     }
