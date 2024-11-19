@@ -72,6 +72,7 @@ namespace WebAPI.Controllers
         // POST api/<Usuario>/Registro
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPost]
         public IActionResult Post([FromBody] DTOUsuarioRegistro dtoUsuario)
@@ -88,6 +89,10 @@ namespace WebAPI.Controllers
                 }
                 dtoUsuario = AltaUsuario.Registrar(dtoUsuario);
                 return CreatedAtRoute("FindByIdUsuario", new { Id = dtoUsuario.UserId }, dtoUsuario);
+            }
+            catch(UsuarioException ue)
+            {
+                return Conflict(ue.Message);
             }
             catch (Exception ex)
             {

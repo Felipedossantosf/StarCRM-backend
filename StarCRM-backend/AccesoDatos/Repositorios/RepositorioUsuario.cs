@@ -21,15 +21,20 @@ namespace AccesoDatos.Repositorios
         public void Add(Usuario u)
         {
             if (u == null) throw new UsuarioException("No se recibió el usuario.");
-                     
+            if (_db.Usuarios.Where(us => us.Username == u.Username).Any()) throw new UsuarioException("Username ya registrado.");
+            if (_db.Usuarios.Where(us => us.Email == u.Email).Any()) throw new UsuarioException("Email ya registrado.");
+
             try
             {
                 u.validar();
                 _db.Usuarios.Add(u);
                 _db.SaveChanges();
-            }catch (Exception ex)
+            }catch (UsuarioException ex)
             {
                 throw new UsuarioException(ex.Message);
+            }catch(Exception e)
+            {
+                throw new Exception(e.Message);
             }
         }
 
