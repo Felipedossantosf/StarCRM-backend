@@ -65,6 +65,17 @@ namespace WebAPI
             builder.Services.AddScoped<ILogin, Login>();
             builder.Services.AddScoped<IObtenerUsuario, ObtenerUsuario>();
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("Nueva", app =>
+                {
+                    app.AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+                });
+
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -75,6 +86,8 @@ namespace WebAPI
             }
 
             app.UseHttpsRedirection();
+
+            app.UseCors("Nueva");
 
             app.UseAuthorization();
 
