@@ -10,6 +10,6 @@ namespace LogicaAplicacion.Interfaces.Usuarios
 {
     public interface ILogin
     {
-        DTOUsuarioLogin Login(DTOUsuarioLogin usuario);
+        DTOUsuarioLogin Login(DTOLoginRequest dtoLoginRequest);
     }
 }

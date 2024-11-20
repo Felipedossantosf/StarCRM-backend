@@ -13,7 +13,9 @@ namespace LogicaNegocio.Entidades
 {
     public class Usuario : IValidable
     {
+        [Key]
         public int UserId { get; set; }
+        public string Username { get; set; }
 
         [Required]
         [EmailAddress]
@@ -21,14 +23,14 @@ namespace LogicaNegocio.Entidades
 
         // Contraseña (No guardarla en texto plano en producción)
         [Required]
-        [MinLength(8, ErrorMessage = "La contraseña debe tener al menos 8 caracteres.")]
-        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$",
-        ErrorMessage = "La contraseña debe contener al menos una letra mayúscula, una minúscula, un número y un carácter especial.")]
+        [MinLength(8, ErrorMessage = "La contraseña debe tener al menos 8 caracteres.")]      
         public string Password { get; set; }
 
         [Required]
         public string Rol { get; set; }
-        public string FullName { get; set; }
+        public string Nombre { get; set; }
+
+        public string Apellido { get; set; }
 
         public DateTime FechaCreacion { get; set; } = DateTime.Now;
         public bool Activo { get; set; } = true;

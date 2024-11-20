@@ -1,9 +1,11 @@
 
+using AccesoDatos;
 using AccesoDatos.Interfaces;
 using AccesoDatos.Repositorios;
 using LogicaAplicacion.CasosDeUso.Usuarios;
 using LogicaAplicacion.Interfaces.Usuarios;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -46,6 +48,10 @@ namespace WebAPI
 
             // Conexión Db
             // To Do
+            ConfigurationBuilder configuration = new ConfigurationBuilder();
+            configuration.AddJsonFile("appsettings.json");
+            string connection = configuration.Build().GetConnectionString("ConnectionStringDb");
+            builder.Services.AddDbContext<StarCRMContext>(Options => Options.UseSqlServer(connection));
 
 
             // REPOSITORIOS
@@ -57,6 +63,18 @@ namespace WebAPI
             // Usuario
             builder.Services.AddScoped<IAltaUsuario, AltaUsuario>();
             builder.Services.AddScoped<ILogin, Login>();
+            builder.Services.AddScoped<IObtenerUsuario, ObtenerUsuario>();
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("Nueva", app =>
+                {
+                    app.AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+                });
+
+            });
 
             var app = builder.Build();
 
@@ -68,6 +86,8 @@ namespace WebAPI
             }
 
             app.UseHttpsRedirection();
+
+            app.UseCors("Nueva");
 
             app.UseAuthorization();
 

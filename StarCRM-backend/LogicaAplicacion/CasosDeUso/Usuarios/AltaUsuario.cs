@@ -23,16 +23,18 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
         {
             Usuario nuevoUsuario = new Usuario()
             {   
+                Username = usuario.Username,
                 Email = usuario.Email,
                 Password = usuario.Password,   
                 Rol = usuario.Rol,
-                FullName = usuario.FullName
+                Nombre = usuario.Nombre,
+                Apellido = usuario.Apellido,
             };
             try
             {
                 nuevoUsuario.validar();
                 RepoUsuarios.Add(nuevoUsuario);
-                usuario.Id = nuevoUsuario.UserId;
+                usuario.UserId = nuevoUsuario.UserId;
             }catch (Exception ex)
             {
                 throw new Exception(ex.Message);

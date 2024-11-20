@@ -12,5 +12,26 @@ namespace AccesoDatos
     {
         public DbSet<Usuario> Usuarios { get; set; }   
         public StarCRMContext(DbContextOptions<StarCRMContext> options) : base(options) { }
+        public StarCRMContext() { }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("SERVER=DESKTOP-UTUI63B\\SQLEXPRESS;INTEGRATED SECURITY=TRUE;ENCRYPT=FALSE;Initial Catalog=StarCRM-Test");
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Usuario>()
+                .HasIndex(u => u.Username)
+                .IsUnique()
+                .HasName("Index_Username");
+
+            modelBuilder.Entity<Usuario>()
+                .HasIndex(u => u.Email)
+                .IsUnique()
+                .HasName("Index_Email");
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

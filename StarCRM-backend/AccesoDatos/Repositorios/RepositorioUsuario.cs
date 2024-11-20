@@ -21,15 +21,20 @@ namespace AccesoDatos.Repositorios
         public void Add(Usuario u)
         {
             if (u == null) throw new UsuarioException("No se recibió el usuario.");
-                     
+            if (_db.Usuarios.Where(us => us.Username == u.Username).Any()) throw new UsuarioException("Username ya registrado.");
+            if (_db.Usuarios.Where(us => us.Email == u.Email).Any()) throw new UsuarioException("Email ya registrado.");
+
             try
             {
                 u.validar();
                 _db.Usuarios.Add(u);
                 _db.SaveChanges();
-            }catch (Exception ex)
+            }catch (UsuarioException ex)
             {
                 throw new UsuarioException(ex.Message);
+            }catch(Exception e)
+            {
+                throw new Exception(e.Message);
             }
         }
 
@@ -40,17 +45,33 @@ namespace AccesoDatos.Repositorios
 
         public Usuario FindById(int? id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (id == null) throw new UsuarioException("Id usario no puede ser nulo");
+                return _db.Usuarios.SingleOrDefault(u => u.UserId == id);                            
+            }catch(Exception ex)
+            {
+                throw new UsuarioException($"Error: {ex.Message}");
+            }
         }
 
-        public Usuario IniciarSesion(string email, string password)
+        public Usuario IniciarSesion(string username, string password)
         {
-            var logueado = _db.Usuarios.Where(u => u.Email == email && u.Password == password).FirstOrDefault();
-            if(logueado != null)
+            try
+            {
+                return _db.Usuarios.Where(u => u.Username == username && u.Password == password).FirstOrDefault();
+            }catch(Exception e)
+            {
+                throw new UsuarioException($"Error: {e.Message}");
+            }
+
+            /*
+             * var logueado = 
+             * if(logueado != null)
             {
                 return logueado;
             }
-            return null;
+            return null;*/
         }
 
         public void Remove(Usuario obj)

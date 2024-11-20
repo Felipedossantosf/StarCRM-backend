@@ -23,7 +23,7 @@ namespace WebAPI
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name, usuario.FullName),
+                    new Claim(ClaimTypes.Name, usuario.Username),
 
                 }),
                 Expires = DateTime.UtcNow.AddMinutes(30),
