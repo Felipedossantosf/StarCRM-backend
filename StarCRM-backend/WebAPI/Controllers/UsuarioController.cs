@@ -121,7 +121,9 @@ namespace WebAPI.Controllers
             DTOUsuarioLogueado dtoUsuarioLogueado = new DTOUsuarioLogueado()
             {   
                 Username = dtoUsuario.Username,    
-                Token = TokenManager.CrearToken(dtoUsuario)        
+                Token = TokenManager.CrearToken(dtoUsuario),
+                Rol = dtoUsuario.Rol,
+                Nombre = dtoUsuario.Nombre
             };    
             return Ok(dtoUsuarioLogueado);    
                            
