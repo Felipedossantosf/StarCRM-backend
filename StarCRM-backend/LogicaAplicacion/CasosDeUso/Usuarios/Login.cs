@@ -30,6 +30,8 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
                 dtoUsuario.Id = usuarioBuscado.UserId;
                 dtoUsuario.Username = usuarioBuscado.Username;
                 dtoUsuario.Password = usuarioBuscado.Password;
+                dtoUsuario.Rol = usuarioBuscado.Rol;
+                dtoUsuario.Nombre = usuarioBuscado.Nombre;
             };
             return dtoUsuario;
         }

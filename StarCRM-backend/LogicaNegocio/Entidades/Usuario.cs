@@ -31,11 +31,11 @@ namespace LogicaNegocio.Entidades
         public string Nombre { get; set; }
 
         public string Apellido { get; set; }
+        public string Cargo { get; set; }
 
-        public DateTime FechaCreacion { get; set; } = DateTime.Now;
-        public bool Activo { get; set; } = true;
+        //public DateTime FechaCreacion { get; set; } = DateTime.Now;
+        //public bool Activo { get; set; } = true;
 
-        public DateTime? FechaUltimoLogin { get; set; }
 
         public Usuario() { }
 

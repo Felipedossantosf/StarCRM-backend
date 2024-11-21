@@ -29,6 +29,7 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
                 Rol = usuario.Rol,
                 Nombre = usuario.Nombre,
                 Apellido = usuario.Apellido,
+                Cargo = usuario.Cargo,
             };
             try
             {
