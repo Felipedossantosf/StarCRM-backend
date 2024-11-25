@@ -27,7 +27,7 @@ namespace AccesoDatos.Repositorios
             try
             {
                 u.validar();
-                _db.Usuarios.Add(u);
+                _db.Usuarios.Add(u);                
                 _db.SaveChanges();
             }catch (UsuarioException ex)
             {

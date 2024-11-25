@@ -3,6 +3,7 @@ using LogicaNegocio.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -11,6 +12,8 @@ using System.Threading.Tasks;
 
 namespace LogicaNegocio.Entidades
 {
+
+    [Table("Usuario")]
     public class Usuario : IValidable
     {
         [Key]
@@ -26,15 +29,14 @@ namespace LogicaNegocio.Entidades
         [MinLength(8, ErrorMessage = "La contraseña debe tener al menos 8 caracteres.")]      
         public string Password { get; set; }
 
-        [Required]
+        //[NotMapped]
         public string Rol { get; set; }
         public string Nombre { get; set; }
 
         public string Apellido { get; set; }
         public string Cargo { get; set; }
 
-        //public DateTime FechaCreacion { get; set; } = DateTime.Now;
-        //public bool Activo { get; set; } = true;
+        
 
 
         public Usuario() { }
@@ -55,6 +57,7 @@ namespace LogicaNegocio.Entidades
             {
                 throw new UsuarioException("Campos vacíos.");
             }
+           
             validarMail();
         }
 
