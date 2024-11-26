@@ -92,7 +92,13 @@ namespace WebAPI.Controllers
             }
             catch(UsuarioException ue)
             {
-                return Conflict(ue.Message);
+                var errorResponse = new
+                {
+                    status = "error",
+                    message = ue.Message,
+                    timestamp = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ")
+                };
+                return Conflict(errorResponse);
             }
             catch (Exception ex)
             {

@@ -2,6 +2,7 @@
 using DTOs.Usuarios;
 using LogicaAplicacion.Interfaces.Usuarios;
 using LogicaNegocio.Entidades;
+using LogicaNegocio.Excepciones;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,9 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
                 nuevoUsuario.validar();
                 RepoUsuarios.Add(nuevoUsuario);
                 usuario.UserId = nuevoUsuario.UserId;
+            }catch(UsuarioException ue)
+            {
+                throw new UsuarioException(ue.Message);
             }catch (Exception ex)
             {
                 throw new Exception(ex.Message);
