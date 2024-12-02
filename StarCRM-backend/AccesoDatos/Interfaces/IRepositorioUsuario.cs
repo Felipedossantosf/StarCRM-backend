@@ -10,6 +10,6 @@ namespace AccesoDatos.Interfaces
     public interface IRepositorioUsuario : IRepositorio<Usuario>
     {
         public Usuario IniciarSesion(string email, string password);
-        
+        public Usuario ObtenerPorUsername(string username);
     }
 }

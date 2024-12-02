@@ -76,3 +76,4 @@ C:\ort2024\StarCRM-backend\StarCRM-backend\LogicaAplicacion\obj\Debug\net7.0\ref
 C:\ort2024\StarCRM-backend\StarCRM-backend\LogicaAplicacion\obj\Debug\net7.0\LogicaAplicacion.pdb
 C:\ort2024\StarCRM-backend\StarCRM-backend\LogicaAplicacion\obj\Debug\net7.0\LogicaAplicacion.genruntimeconfig.cache
 C:\ort2024\StarCRM-backend\StarCRM-backend\LogicaAplicacion\obj\Debug\net7.0\ref\LogicaAplicacion.dll
+C:\ort2024\StarCRM-backend\StarCRM-backend\LogicaAplicacion\bin\Debug\net7.0\BCrypt.Net-Next.dll

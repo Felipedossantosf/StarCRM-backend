@@ -15,24 +15,40 @@ namespace WebAPI.Controllers
         public IAltaUsuario AltaUsuario { get; set; }
         public ILogin LoginUsuario { get; set; }
         public IObtenerUsuario ObtenerUsuario { get; set; } 
+        public IObtenerUsuarios ObtenerUsuarios { get; set; }
 
         public UsuarioController
         (
             IAltaUsuario altaUsuario,
             ILogin loginUsuario,
-            IObtenerUsuario obtenerUsuario
+            IObtenerUsuario obtenerUsuario,
+            IObtenerUsuarios obtenerUsuarios
         )
         {
             AltaUsuario = altaUsuario;
             LoginUsuario = loginUsuario;
             ObtenerUsuario = obtenerUsuario;
+            ObtenerUsuarios = obtenerUsuarios;
         }
 
+        /// <summary>
+        /// Servicio que permite obtener listado de usuarios
+        /// </summary>
+        /// <returns></returns>
         // GET: api/<UsuarioController>
+        [ProducesResponseType(StatusCodes.Status200OK)]        
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                IEnumerable<DTOUsuarioRegistro> dtoUsuarios = ObtenerUsuarios.ObtenerUsuarios();
+                return Ok(dtoUsuarios);
+            }catch(Exception ex)
+            {
+                return StatusCode(500);
+            }
         }
 
 

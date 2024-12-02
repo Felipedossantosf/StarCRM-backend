@@ -22,7 +22,10 @@ namespace WebAPI
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen(opt =>
+            {
+                opt.IncludeXmlComments("WebAPI.xml");
+            });
 
             ////Comienza JWT////
             var claveSecreta = "ZWRpw6fDo28gZW0gY29tcHV0YWRvcmE=";
@@ -64,6 +67,7 @@ namespace WebAPI
             builder.Services.AddScoped<IAltaUsuario, AltaUsuario>();
             builder.Services.AddScoped<ILogin, Login>();
             builder.Services.AddScoped<IObtenerUsuario, ObtenerUsuario>();
+            builder.Services.AddScoped<IObtenerUsuarios, ObtenerUsuarios>();
 
             builder.Services.AddCors(options =>
             {

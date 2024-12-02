@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "V66PZGsF4MjJ+4xd1D86dyf6I1V/qk7lG7dbOfXa+KNUKAmfcEiW2Ot/83JnqZjlGqEDHeRWy3hqZ5lHKplVSg==",
+  "dgSpecHash": "Y16agvSBvcz8GUEEHoPLYbRuBUIIMfq2i0DeMkpfeFJTNiFhHK8xH4SsoIFYH1BktKVkLXuAqX1Yjt+D3cT+yw==",
   "success": true,
   "projectFilePath": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\LogicaAplicacion\\LogicaAplicacion.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\feldo\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\feldo\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\feldo\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\feldo\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\feldo\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\feldo\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.1\\microsoft.data.sqlclient.5.0.1.nupkg.sha512",
