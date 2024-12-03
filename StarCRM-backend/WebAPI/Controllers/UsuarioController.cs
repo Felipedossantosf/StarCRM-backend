@@ -137,7 +137,13 @@ namespace WebAPI.Controllers
             DTOUsuarioLogin dtoUsuario = LoginUsuario.Login(dtoLoginRequest);
             if (String.IsNullOrEmpty(dtoUsuario.Username))
             {
-                return NotFound("Usuario no encontrado, credenciales incorrectas.");
+                var errorResponse = new
+                {
+                    status = "error",
+                    message = "Usuario no encontrado, credenciales incorrectas.",
+                    timestampt = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ")
+                };
+                return NotFound(errorResponse);
             }
             
             DTOUsuarioLogueado dtoUsuarioLogueado = new DTOUsuarioLogueado()
@@ -145,7 +151,8 @@ namespace WebAPI.Controllers
                 Username = dtoUsuario.Username,    
                 Token = TokenManager.CrearToken(dtoUsuario),
                 Rol = dtoUsuario.Rol,
-                Nombre = dtoUsuario.Nombre
+                Nombre = dtoUsuario.Nombre,
+                Apellido = dtoUsuario.Apellido
             };    
             return Ok(dtoUsuarioLogueado);    
                            

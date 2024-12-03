@@ -26,14 +26,14 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
             DTOUsuarioLogin dtoUsuario = new DTOUsuarioLogin();
 
 
-            //if (usuarioBuscado != null)
-            if(BCrypt.Net.BCrypt.Verify(dtoLoginRequest.password, usuarioBuscado.Password))
+            if(usuarioBuscado != null && BCrypt.Net.BCrypt.Verify(dtoLoginRequest.password, usuarioBuscado.Password))
             {
                 dtoUsuario.Id = usuarioBuscado.UserId;
                 dtoUsuario.Username = usuarioBuscado.Username;
                 //dtoUsuario.Password = usuarioBuscado.Password;
                 dtoUsuario.Rol = usuarioBuscado.Rol;
                 dtoUsuario.Nombre = usuarioBuscado.Nombre;
+                dtoUsuario.Apellido = usuarioBuscado.Apellido;
             };
             return dtoUsuario;
         }
