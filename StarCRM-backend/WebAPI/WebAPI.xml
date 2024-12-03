@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebAPI</name>
+    </assembly>
+    <members>
+        <member name="M:WebAPI.Controllers.UsuarioController.Get">
+            <summary>
+            Servicio que permite obtener listado de usuarios
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI.Controllers.UsuarioController.Get(System.Int32)">
+            <summary>
+            Servicio que permite obtener un usuario por su Id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI.Controllers.UsuarioController.Post(DTOs.Usuarios.DTOUsuarioRegistro)">
+            <summary>
+            Servicio que permite registrar un usuario
+            </summary>
+            <returns></returns>        
+        </member>
+        <member name="M:WebAPI.Controllers.UsuarioController.Post(DTOs.Usuarios.DTOLoginRequest)">
+            <summary>
+            Servicio que permite Loguear un usuario
+            </summary>
+            <returns></returns>        
+        </member>
+    </members>
+</doc>

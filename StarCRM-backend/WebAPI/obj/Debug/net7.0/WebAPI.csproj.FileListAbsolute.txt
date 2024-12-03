@@ -95,3 +95,5 @@ C:\ort2024\StarCRM-backend\StarCRM-backend\WebAPI\bin\Debug\net7.0\Microsoft.Ent
 C:\ort2024\StarCRM-backend\StarCRM-backend\WebAPI\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
 C:\ort2024\StarCRM-backend\StarCRM-backend\WebAPI\bin\Debug\net7.0\Mono.TextTemplating.dll
 C:\ort2024\StarCRM-backend\StarCRM-backend\WebAPI\bin\Debug\net7.0\System.CodeDom.dll
+C:\ort2024\StarCRM-backend\StarCRM-backend\WebAPI\bin\Debug\net7.0\BCrypt.Net-Next.dll
+C:\ort2024\StarCRM-backend\StarCRM-backend\WebAPI\bin\Debug\net7.0\WebAPI.xml

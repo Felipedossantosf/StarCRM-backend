@@ -23,10 +23,11 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
         public DTOUsuarioRegistro Registrar(DTOUsuarioRegistro usuario)
         {
             Usuario nuevoUsuario = new Usuario()
-            {   
+            {
                 Username = usuario.Username,
                 Email = usuario.Email,
-                Password = usuario.Password,   
+                // Encrypt de contraseña
+                Password = EncriptarPass(usuario.Password),
                 Rol = usuario.Rol,
                 Nombre = usuario.Nombre,
                 Apellido = usuario.Apellido,
@@ -45,6 +46,13 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
                 throw new Exception(ex.Message);
             }
             return usuario;
+        }
+
+        // Encrypt de contraseña
+        private string EncriptarPass(string password)
+        {
+            return BCrypt.Net.BCrypt.HashPassword(password, BCrypt.Net.BCrypt.GenerateSalt(10));
+
         }
     }
 }
