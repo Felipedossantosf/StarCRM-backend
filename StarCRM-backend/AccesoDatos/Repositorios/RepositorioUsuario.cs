@@ -40,7 +40,7 @@ namespace AccesoDatos.Repositorios
 
         public IEnumerable<Usuario> FindAll()
         {
-            throw new NotImplementedException();
+            return _db.Usuarios.ToList();
         }
 
         public Usuario FindById(int? id)
@@ -64,14 +64,17 @@ namespace AccesoDatos.Repositorios
             {
                 throw new UsuarioException($"Error: {e.Message}");
             }
+        }
 
-            /*
-             * var logueado = 
-             * if(logueado != null)
+        public Usuario ObtenerPorUsername(string username)
+        {
+            try
             {
-                return logueado;
+                return _db.Usuarios.SingleOrDefault(u => u.Username == username);
+            }catch(Exception e)
+            {
+                throw new UsuarioException($"Error al obtener usuario: {e.Message}");
             }
-            return null;*/
         }
 
         public void Remove(Usuario obj)

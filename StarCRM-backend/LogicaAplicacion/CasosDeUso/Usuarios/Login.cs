@@ -21,17 +21,19 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
 
         DTOUsuarioLogin ILogin.Login(DTOLoginRequest dtoLoginRequest)
         {
-            Usuario usuarioBuscado = RepoUsuarios.IniciarSesion(dtoLoginRequest.username, dtoLoginRequest.password);
+            //Usuario usuarioBuscado = RepoUsuarios.IniciarSesion(dtoLoginRequest.username, dtoLoginRequest.password);
+            Usuario usuarioBuscado = RepoUsuarios.ObtenerPorUsername(dtoLoginRequest.username);
             DTOUsuarioLogin dtoUsuario = new DTOUsuarioLogin();
 
 
-            if (usuarioBuscado != null)
+            if(usuarioBuscado != null && BCrypt.Net.BCrypt.Verify(dtoLoginRequest.password, usuarioBuscado.Password))
             {
                 dtoUsuario.Id = usuarioBuscado.UserId;
                 dtoUsuario.Username = usuarioBuscado.Username;
-                dtoUsuario.Password = usuarioBuscado.Password;
+                //dtoUsuario.Password = usuarioBuscado.Password;
                 dtoUsuario.Rol = usuarioBuscado.Rol;
                 dtoUsuario.Nombre = usuarioBuscado.Nombre;
+                dtoUsuario.Apellido = usuarioBuscado.Apellido;
             };
             return dtoUsuario;
         }
