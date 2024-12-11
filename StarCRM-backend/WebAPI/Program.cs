@@ -63,7 +63,7 @@ namespace WebAPI
             // REPOSITORIOS
             builder.Services.AddScoped<IRepositorioUsuario, RepositorioUsuario>();
             builder.Services.AddScoped<IRepositorioComercial, RepositorioComercial>();
-            //builder.Services.AddScoped<IRepositorio<Cliente>, RepositorioCliente>();
+            
 
             // CASOS DE USO
 
