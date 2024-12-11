@@ -116,7 +116,49 @@ namespace AccesoDatos.Repositorios
             throw new NotImplementedException();
         }
 
-        public void Update(int id, Comercial obj)
+        public void Update(int id, Comercial comercial)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateCliente(int id, Cliente cliente)
+        {
+            if (cliente == null)
+                throw new ClienteException("Cliente recibido por parámetro nulo");
+
+            var clienteExistente = _db.Comerciales.OfType<Cliente>().FirstOrDefault(c => c.id == id);
+
+            if (clienteExistente == null)
+                throw new ClienteException("No se encontró cliente con el id especificado.");
+
+            try
+            {
+                clienteExistente.nombre = cliente.nombre;
+                clienteExistente.telefono = cliente.telefono;
+                clienteExistente.correo = cliente.correo;
+                clienteExistente.credito = cliente.credito;
+                clienteExistente.razonSocial = cliente.razonSocial; 
+                clienteExistente.rut = cliente.rut;
+                clienteExistente.direccion = cliente.direccion;
+                clienteExistente.sitioWeb = cliente.sitioWeb;
+                clienteExistente.TipoComercial = cliente.TipoComercial;
+                clienteExistente.zafras = cliente.zafras;
+                clienteExistente.notas = cliente.notas;
+                clienteExistente.esInactivo = cliente.esInactivo;
+                clienteExistente.estado = cliente.estado;
+
+                _db.SaveChanges();
+            }catch(ClienteException ex)
+            {
+                throw new ClienteException(ex.Message);
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public void UpdateProveedor(int id, Proveedor proveedor)
         {
             throw new NotImplementedException();
         }

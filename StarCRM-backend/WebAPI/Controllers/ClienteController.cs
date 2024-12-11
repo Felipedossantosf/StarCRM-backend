@@ -17,18 +17,20 @@ namespace WebAPI.Controllers
         public IObtenerCliente ObtenerCliente { get; set; }
         public IObtenerClientes ObtenerClientes { get; set; }
         public IEliminarCliente EliminarCliente { get; set; }
-
+        public IModificarCliente ModificarCliente { get; set; }
         public ClienteController(
             IAltaCliente altaCliente,
             IObtenerCliente obtenerCliente,
             IObtenerClientes obtenerClientes,
-            IEliminarCliente eliminarCliente
+            IEliminarCliente eliminarCliente,
+            IModificarCliente modificarCliente
         )
         {
             AltaCliente = altaCliente;
             ObtenerCliente = obtenerCliente;
             ObtenerClientes = obtenerClientes;
             EliminarCliente = eliminarCliente;
+            ModificarCliente = modificarCliente;
         }
 
 
@@ -142,10 +144,44 @@ namespace WebAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Servicio que permite modificar un cliente
+        /// </summary>
+        /// <returns></returns>  
         // PUT api/<ClienteController>/5
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put(int id, [FromBody] DTOCliente dtoCliente)
         {
+            try
+            {
+                if (dtoCliente == null)
+                    return BadRequest("El cuerpo de la solicitud no es válido.");
+
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+
+                dtoCliente = ModificarCliente.Modificar(id, dtoCliente);
+
+                return Ok(new { message = "Cliente actualizado correctamente.", cliente = dtoCliente });
+            }
+            catch (ClienteException e)
+            {
+                var errorResponse = new
+                {
+                    status = "error",
+                    message = e.Message,
+                    timestamp = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ")
+                };
+                return NotFound(errorResponse);
+            }
+            catch(Exception ex)
+            {
+                return StatusCode(500, new {mesage = "Ocurrió un error al actualizar al cliente", details = ex.Message });
+            }
         }
 
         /// <summary>

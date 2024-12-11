@@ -78,6 +78,8 @@ namespace WebAPI
             builder.Services.AddScoped<IObtenerCliente, ObtenerCliente>();
             builder.Services.AddScoped<IObtenerClientes, ObtenerClientes>();
             builder.Services.AddScoped<IEliminarCliente, EliminarCliente>();    
+            builder.Services.AddScoped<IModificarCliente, ModificarCliente>();  
+
 
             builder.Services.AddCors(options =>
             {
