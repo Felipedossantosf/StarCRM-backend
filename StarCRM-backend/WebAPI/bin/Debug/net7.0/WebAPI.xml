@@ -4,6 +4,36 @@
         <name>WebAPI</name>
     </assembly>
     <members>
+        <member name="M:WebAPI.Controllers.ClienteController.Get">
+            <summary>
+            Servicio que permite obtener listado de clientes
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI.Controllers.ClienteController.Get(System.Int32)">
+            <summary>
+            Servicio que permite obtener un cliente por su id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI.Controllers.ClienteController.Post(DTOs.Clientes.DTOCliente)">
+            <summary>
+            Servicio que permite dar de alta un cliente
+            </summary>
+            <returns></returns>  
+        </member>
+        <member name="M:WebAPI.Controllers.ClienteController.Put(System.Int32,DTOs.Clientes.DTOCliente)">
+            <summary>
+            Servicio que permite modificar un cliente
+            </summary>
+            <returns></returns>  
+        </member>
+        <member name="M:WebAPI.Controllers.ClienteController.Delete(System.Int32)">
+            <summary>
+            Servicio que permite eliminar un cliente
+            </summary>
+            <returns></returns> 
+        </member>
         <member name="M:WebAPI.Controllers.UsuarioController.Get">
             <summary>
             Servicio que permite obtener listado de usuarios
