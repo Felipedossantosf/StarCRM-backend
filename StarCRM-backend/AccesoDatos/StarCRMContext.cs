@@ -11,6 +11,9 @@ namespace AccesoDatos
     public class StarCRMContext: DbContext
     {
         public DbSet<Usuario> Usuarios { get; set; }   
+        public DbSet<Comercial> Comerciales { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
+
         public StarCRMContext(DbContextOptions<StarCRMContext> options) : base(options) { }
         public StarCRMContext() { }
 
@@ -21,6 +24,7 @@ namespace AccesoDatos
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Usuario
             modelBuilder.Entity<Usuario>()
                 .HasIndex(u => u.Username)
                 .IsUnique()
@@ -62,6 +66,16 @@ namespace AccesoDatos
             modelBuilder.Entity<Usuario>()
                 .Property(u => u.Email)
                 .HasColumnName("correo");
+
+            // Comercial
+            modelBuilder.Entity<Comercial>()
+                .ToTable("Comercial")
+                .HasKey(c => c.id);
+
+            modelBuilder.Entity<Comercial>()
+                .HasDiscriminator<string>("TipoComercial")
+                .HasValue<Cliente>("Cliente")
+                .HasValue<Proveedor>("Proveedor");
 
             base.OnModelCreating(modelBuilder);
         }
