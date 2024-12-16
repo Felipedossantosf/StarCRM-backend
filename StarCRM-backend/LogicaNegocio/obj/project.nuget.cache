@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ncMh8rbfuTdeyulBQZfuderAe61vS+gCyzdUl2A/EmHe6dvstO+zjilSAeZijkTCYcH+Ax+wf0m9hyQGFwB0Hg==",
+  "dgSpecHash": "i+xENDZQmxs=",
   "success": true,
-  "projectFilePath": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\LogicaNegocio\\LogicaNegocio.csproj",
+  "projectFilePath": "C:\\starfish\\StarCRM-backend\\StarCRM-backend\\LogicaNegocio\\LogicaNegocio.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

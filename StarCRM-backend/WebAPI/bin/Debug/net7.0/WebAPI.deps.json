@@ -695,12 +695,18 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.0"
         },
         "runtime": {
-          "AccesoDatos.dll": {}
+          "AccesoDatos.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "DTOs/1.0.0": {
         "runtime": {
-          "DTOs.dll": {}
+          "DTOs.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "LogicaAplicacion/1.0.0": {
@@ -711,12 +717,18 @@
           "LogicaNegocio": "1.0.0"
         },
         "runtime": {
-          "LogicaAplicacion.dll": {}
+          "LogicaAplicacion.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "LogicaNegocio/1.0.0": {
         "runtime": {
-          "LogicaNegocio.dll": {}
+          "LogicaNegocio.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
