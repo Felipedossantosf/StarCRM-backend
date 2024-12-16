@@ -3,8 +3,10 @@ using AccesoDatos;
 using AccesoDatos.Interfaces;
 using AccesoDatos.Repositorios;
 using LogicaAplicacion.CasosDeUso.Clientes;
+using LogicaAplicacion.CasosDeUso.Proveedor;
 using LogicaAplicacion.CasosDeUso.Usuarios;
 using LogicaAplicacion.Interfaces.Clientes;
+using LogicaAplicacion.Interfaces.Proveedor;
 using LogicaAplicacion.Interfaces.Usuarios;
 using LogicaNegocio.Entidades;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -78,7 +80,20 @@ namespace WebAPI
             builder.Services.AddScoped<IObtenerCliente, ObtenerCliente>();
             builder.Services.AddScoped<IObtenerClientes, ObtenerClientes>();
             builder.Services.AddScoped<IEliminarCliente, EliminarCliente>();    
-            builder.Services.AddScoped<IModificarCliente, ModificarCliente>();  
+            builder.Services.AddScoped<IModificarCliente, ModificarCliente>();
+
+            // Proveedor
+            builder.Services.AddScoped<IAltaProveedor, AltaProveedor>();
+            builder.Services.AddScoped<IObtenerProveedor, ObtenerProveedor>();
+            builder.Services.AddScoped<IObtenerProveedores, ObtenerProveedores>();
+            builder.Services.AddScoped<IEliminarProveedor, EliminarProveedor>();
+            builder.Services.AddScoped<IModificarProveedor, ModificarProveedor>();
+
+
+
+
+
+
 
 
             builder.Services.AddCors(options =>

@@ -13,9 +13,6 @@ namespace LogicaNegocio.Entidades
     
     public class Cliente:Comercial,  IValidable
     {
-        
-        
-
         public string paises { get; set; }
         public string tipoMercaderia { get; set; }
         public string frecuencia { get; set; }

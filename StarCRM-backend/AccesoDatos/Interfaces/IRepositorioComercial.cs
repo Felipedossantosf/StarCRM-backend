@@ -14,6 +14,9 @@ namespace AccesoDatos.Interfaces
         IEnumerable<Cliente> FindAllClientes();
         IEnumerable<Proveedor> FindAllProveedores();
         void UpdateCliente(int id, Cliente cliente);
+
+        void Update(int id, Comercial comercial);
+
         void UpdateProveedor(int id, Proveedor proveedor);
     }
 }

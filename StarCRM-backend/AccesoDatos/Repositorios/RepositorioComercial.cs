@@ -57,7 +57,7 @@ namespace AccesoDatos.Repositorios
 
         public IEnumerable<Proveedor> FindAllProveedores()
         {
-            throw new NotImplementedException();
+            return _db.Comerciales.OfType<Proveedor>().ToList(); // Retornar todos los comerciales de tipo Cliente
         }
 
         public IEnumerable<Comercial> FindByCondition(Expression<Func<Comercial, bool>> expression)
@@ -118,7 +118,37 @@ namespace AccesoDatos.Repositorios
 
         public void Update(int id, Comercial comercial)
         {
-            throw new NotImplementedException();
+            if (comercial == null)
+                throw new ComercialException("comercial recibido por parámetro nulo");
+
+            var comercialExistente = _db.Comerciales.FirstOrDefault(c => c.id == id);
+
+            if (comercialExistente == null)
+                throw new ComercialException("No se encontró comercial con el id especificado.");
+
+            try
+            {
+                comercialExistente.nombre = comercial.nombre;
+                comercialExistente.telefono = comercial.telefono;
+                comercialExistente.correo = comercial.correo;
+                comercialExistente.credito = comercial.credito;
+                comercialExistente.razonSocial = comercial.razonSocial;
+                comercialExistente.rut = comercial.rut;
+                comercialExistente.direccion = comercial.direccion;
+                comercialExistente.sitioWeb = comercial.sitioWeb;
+                comercialExistente.TipoComercial = comercial.TipoComercial;
+             
+
+                _db.SaveChanges();
+            }
+            catch (ComercialException ex)
+            {
+                throw new ComercialException(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public void UpdateCliente(int id, Cliente cliente)
