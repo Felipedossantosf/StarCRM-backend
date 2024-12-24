@@ -22,6 +22,10 @@ namespace LogicaAplicacion.CasosDeUso.Proveedor
         }
         DTOProveedor  IAltaProveedor.AltaProveedor(DTOProveedor dTOProveedor)
         {
+            if(dTOProveedor == null)
+                throw new ArgumentNullException(nameof(dTOProveedor));
+           
+
             Comercial nuevoProveedor = new Comercial()
             {
                 nombre = dTOProveedor.Nombre,
@@ -35,6 +39,8 @@ namespace LogicaAplicacion.CasosDeUso.Proveedor
                 TipoComercial = dTOProveedor.TipoComercial,
                
             };
+
+            
 
             try
             {

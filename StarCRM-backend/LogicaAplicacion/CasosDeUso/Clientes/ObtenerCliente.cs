@@ -21,10 +21,20 @@ namespace LogicaAplicacion.CasosDeUso.Clientes
 
         public DTOCliente ObtenerPorId(int id)
         {
+            if (id <= 0)
+            {
+                throw new ArgumentException("El ID debe ser mayor a cero", nameof(id));
+            }
+
             var clienteBuscado = RepoComercial.FindByCondition(c => c.id == id && c.TipoComercial == "Cliente")
                                         .FirstOrDefault();
 
             Cliente cliente = clienteBuscado as Cliente;
+
+            if (cliente == null)
+            {
+                throw new KeyNotFoundException($"No se encontró un cliente con el ID {id}");
+            }
 
             DTOCliente dtoCliente = new DTOCliente()
             {

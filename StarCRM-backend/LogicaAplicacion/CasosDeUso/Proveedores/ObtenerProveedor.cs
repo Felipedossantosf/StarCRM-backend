@@ -21,10 +21,20 @@ namespace LogicaAplicacion.CasosDeUso.Proveedor
 
         public DTOProveedor ObtenerPorId(int id)
         {
+            if (id <= 0)
+            {
+                throw new ArgumentException("El ID debe ser mayor a cero", nameof(id));
+            }
+
             var proveedorBuscado = RepoComercial.FindByCondition(c => c.id == id && c.TipoComercial == "Proveedor")
                                         .FirstOrDefault();
 
             Comercial proveedor = proveedorBuscado as Comercial;
+
+            if (proveedor == null)
+            {
+                throw new KeyNotFoundException($"No se encontró un proveedor con el ID {id}");
+            }
 
             DTOProveedor dTOProveedor = new DTOProveedor()
             {

@@ -3,7 +3,6 @@ C:\ort2024\StarCRM-backend\StarCRM-backend\LogicaNegocio\bin\Debug\net7.0\Logica
 C:\ort2024\StarCRM-backend\StarCRM-backend\LogicaNegocio\bin\Debug\net7.0\LogicaNegocio.runtimeconfig.json
 C:\ort2024\StarCRM-backend\StarCRM-backend\LogicaNegocio\bin\Debug\net7.0\LogicaNegocio.dll
 C:\ort2024\StarCRM-backend\StarCRM-backend\LogicaNegocio\bin\Debug\net7.0\LogicaNegocio.pdb
-C:\ort2024\StarCRM-backend\StarCRM-backend\LogicaNegocio\obj\Debug\net7.0\LogicaNegocio.csproj.AssemblyReference.cache
 C:\ort2024\StarCRM-backend\StarCRM-backend\LogicaNegocio\obj\Debug\net7.0\LogicaNegocio.GeneratedMSBuildEditorConfig.editorconfig
 C:\ort2024\StarCRM-backend\StarCRM-backend\LogicaNegocio\obj\Debug\net7.0\LogicaNegocio.AssemblyInfoInputs.cache
 C:\ort2024\StarCRM-backend\StarCRM-backend\LogicaNegocio\obj\Debug\net7.0\LogicaNegocio.AssemblyInfo.cs
@@ -28,3 +27,4 @@ C:\starfish\StarCRM-backend\StarCRM-backend\LogicaNegocio\obj\Debug\net7.0\refin
 C:\starfish\StarCRM-backend\StarCRM-backend\LogicaNegocio\obj\Debug\net7.0\LogicaNegocio.pdb
 C:\starfish\StarCRM-backend\StarCRM-backend\LogicaNegocio\obj\Debug\net7.0\LogicaNegocio.genruntimeconfig.cache
 C:\starfish\StarCRM-backend\StarCRM-backend\LogicaNegocio\obj\Debug\net7.0\ref\LogicaNegocio.dll
+C:\ort2024\StarCRM-backend\StarCRM-backend\LogicaNegocio\obj\Debug\net7.0\LogicaNegocio.csproj.AssemblyReference.cache

@@ -23,6 +23,11 @@ namespace LogicaAplicacion.CasosDeUso.Clientes
 
         DTOCliente IAltaCliente.AltaCliente(DTOCliente dtoCliente)
         {
+            if (dtoCliente == null)
+            {
+                throw new ArgumentNullException(nameof(dtoCliente), "El DTO Cliente no puede ser nulo");
+            }
+
             Cliente nuevoCliente = new Cliente()
             {
                 nombre = dtoCliente.Nombre,
