@@ -91,9 +91,17 @@ namespace AccesoDatos.Repositorios
 
         public void Remove(int? id)
         {
+            if (id <= 0)
+            {
+                throw new ComercialException("El ID proporcionado no es válido.");
+            }
             try
             {
                 var comercial = FindById(id);
+                if (comercial == null)
+                {
+                    throw new ComercialException($"No se encontró un cliente con el ID {id} para eliminar.");
+                }
                 if (comercial != null)
                 {
                     _db.Comerciales.Remove(comercial);

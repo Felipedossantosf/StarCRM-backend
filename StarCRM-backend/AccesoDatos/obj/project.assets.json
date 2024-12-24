@@ -3477,24 +3477,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Diego\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\feldo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\starfish\\StarCRM-backend\\StarCRM-backend\\AccesoDatos\\AccesoDatos.csproj",
+      "projectUniqueName": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\AccesoDatos\\AccesoDatos.csproj",
       "projectName": "AccesoDatos",
-      "projectPath": "C:\\starfish\\StarCRM-backend\\StarCRM-backend\\AccesoDatos\\AccesoDatos.csproj",
-      "packagesPath": "C:\\Users\\Diego\\.nuget\\packages\\",
-      "outputPath": "C:\\starfish\\StarCRM-backend\\StarCRM-backend\\AccesoDatos\\obj\\",
+      "projectPath": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\AccesoDatos\\AccesoDatos.csproj",
+      "packagesPath": "C:\\Users\\feldo\\.nuget\\packages\\",
+      "outputPath": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\AccesoDatos\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Diego\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\feldo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3508,8 +3503,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\starfish\\StarCRM-backend\\StarCRM-backend\\LogicaNegocio\\LogicaNegocio.csproj": {
-              "projectPath": "C:\\starfish\\StarCRM-backend\\StarCRM-backend\\LogicaNegocio\\LogicaNegocio.csproj"
+            "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\LogicaNegocio\\LogicaNegocio.csproj": {
+              "projectPath": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\LogicaNegocio\\LogicaNegocio.csproj"
             }
           }
         }
@@ -3518,13 +3513,7 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "all"
-      },
-      "SdkAnalysisLevel": "9.0.100"
+      }
     },
     "frameworks": {
       "net7.0": {
@@ -3557,100 +3546,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "El paquete \"Azure.Identity\" 1.6.0 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-5mfx-4wcx-rv27",
-      "libraryId": "Azure.Identity",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
-      "code": "NU1902",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "El paquete \"Azure.Identity\" 1.6.0 tiene una vulnerabilidad de gravedad moderada conocida, https://github.com/advisories/GHSA-m5vv-6r4h-3vj9",
-      "libraryId": "Azure.Identity",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
-      "code": "NU1902",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "El paquete \"Azure.Identity\" 1.6.0 tiene una vulnerabilidad de gravedad moderada conocida, https://github.com/advisories/GHSA-wvxc-855f-jvrv",
-      "libraryId": "Azure.Identity",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "El paquete \"Microsoft.Data.SqlClient\" 5.0.1 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-98g6-xh36-x2p7",
-      "libraryId": "Microsoft.Data.SqlClient",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
-      "code": "NU1902",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "El paquete \"Microsoft.IdentityModel.JsonWebTokens\" 6.21.0 tiene una vulnerabilidad de gravedad moderada conocida, https://github.com/advisories/GHSA-59j7-ghrg-fj52",
-      "libraryId": "Microsoft.IdentityModel.JsonWebTokens",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
-      "code": "NU1904",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "El paquete \"System.Drawing.Common\" 5.0.0 tiene una vulnerabilidad de gravedad crítica conocida, https://github.com/advisories/GHSA-rxg9-xrhp-64gj",
-      "libraryId": "System.Drawing.Common",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "El paquete \"System.Formats.Asn1\" 5.0.0 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-447r-wph3-92pm",
-      "libraryId": "System.Formats.Asn1",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
-      "code": "NU1902",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "El paquete \"System.IdentityModel.Tokens.Jwt\" 6.21.0 tiene una vulnerabilidad de gravedad moderada conocida, https://github.com/advisories/GHSA-59j7-ghrg-fj52",
-      "libraryId": "System.IdentityModel.Tokens.Jwt",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "El paquete \"System.Text.Json\" 7.0.0 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-hh2w-p6rv-4g7w",
-      "libraryId": "System.Text.Json",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    }
-  ]
+  }
 }
