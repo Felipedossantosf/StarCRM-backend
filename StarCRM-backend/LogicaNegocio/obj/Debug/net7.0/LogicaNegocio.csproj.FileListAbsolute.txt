@@ -28,3 +28,18 @@ C:\starfish\StarCRM-backend\StarCRM-backend\LogicaNegocio\obj\Debug\net7.0\Logic
 C:\starfish\StarCRM-backend\StarCRM-backend\LogicaNegocio\obj\Debug\net7.0\LogicaNegocio.genruntimeconfig.cache
 C:\starfish\StarCRM-backend\StarCRM-backend\LogicaNegocio\obj\Debug\net7.0\ref\LogicaNegocio.dll
 C:\ort2024\StarCRM-backend\StarCRM-backend\LogicaNegocio\obj\Debug\net7.0\LogicaNegocio.csproj.AssemblyReference.cache
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\LogicaNegocio\bin\Debug\net7.0\LogicaNegocio.exe
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\LogicaNegocio\bin\Debug\net7.0\LogicaNegocio.deps.json
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\LogicaNegocio\bin\Debug\net7.0\LogicaNegocio.runtimeconfig.json
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\LogicaNegocio\bin\Debug\net7.0\LogicaNegocio.dll
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\LogicaNegocio\bin\Debug\net7.0\LogicaNegocio.pdb
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\LogicaNegocio\obj\Debug\net7.0\LogicaNegocio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\LogicaNegocio\obj\Debug\net7.0\LogicaNegocio.AssemblyInfoInputs.cache
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\LogicaNegocio\obj\Debug\net7.0\LogicaNegocio.AssemblyInfo.cs
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\LogicaNegocio\obj\Debug\net7.0\LogicaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\LogicaNegocio\obj\Debug\net7.0\LogicaNegocio.sourcelink.json
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\LogicaNegocio\obj\Debug\net7.0\LogicaNegocio.dll
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\LogicaNegocio\obj\Debug\net7.0\refint\LogicaNegocio.dll
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\LogicaNegocio\obj\Debug\net7.0\LogicaNegocio.pdb
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\LogicaNegocio\obj\Debug\net7.0\LogicaNegocio.genruntimeconfig.cache
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\LogicaNegocio\obj\Debug\net7.0\ref\LogicaNegocio.dll

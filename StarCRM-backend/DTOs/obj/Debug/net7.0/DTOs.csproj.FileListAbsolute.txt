@@ -28,3 +28,18 @@ C:\starfish\StarCRM-backend\StarCRM-backend\DTOs\obj\Debug\net7.0\DTOs.pdb
 C:\starfish\StarCRM-backend\StarCRM-backend\DTOs\obj\Debug\net7.0\DTOs.genruntimeconfig.cache
 C:\starfish\StarCRM-backend\StarCRM-backend\DTOs\obj\Debug\net7.0\ref\DTOs.dll
 C:\ort2024\StarCRM-backend\StarCRM-backend\DTOs\obj\Debug\net7.0\DTOs.csproj.AssemblyReference.cache
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\DTOs\bin\Debug\net7.0\DTOs.exe
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\DTOs\bin\Debug\net7.0\DTOs.deps.json
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\DTOs\bin\Debug\net7.0\DTOs.runtimeconfig.json
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\DTOs\bin\Debug\net7.0\DTOs.dll
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\DTOs\bin\Debug\net7.0\DTOs.pdb
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\DTOs\obj\Debug\net7.0\DTOs.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\DTOs\obj\Debug\net7.0\DTOs.AssemblyInfoInputs.cache
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\DTOs\obj\Debug\net7.0\DTOs.AssemblyInfo.cs
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\DTOs\obj\Debug\net7.0\DTOs.csproj.CoreCompileInputs.cache
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\DTOs\obj\Debug\net7.0\DTOs.sourcelink.json
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\DTOs\obj\Debug\net7.0\DTOs.dll
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\DTOs\obj\Debug\net7.0\refint\DTOs.dll
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\DTOs\obj\Debug\net7.0\DTOs.pdb
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\DTOs\obj\Debug\net7.0\DTOs.genruntimeconfig.cache
+C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\DTOs\obj\Debug\net7.0\ref\DTOs.dll
