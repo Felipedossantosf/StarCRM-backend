@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\WebAPI\\WebAPI.csproj": {}
+    "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\WebAPI\\WebAPI.csproj": {}
   },
   "projects": {
-    "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\AccesoDatos\\AccesoDatos.csproj": {
+    "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\AccesoDatos\\AccesoDatos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\AccesoDatos\\AccesoDatos.csproj",
+        "projectUniqueName": "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\AccesoDatos\\AccesoDatos.csproj",
         "projectName": "AccesoDatos",
-        "projectPath": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\AccesoDatos\\AccesoDatos.csproj",
-        "packagesPath": "C:\\Users\\feldo\\.nuget\\packages\\",
-        "outputPath": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\AccesoDatos\\obj\\",
+        "projectPath": "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\AccesoDatos\\AccesoDatos.csproj",
+        "packagesPath": "C:\\Users\\miche\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\AccesoDatos\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\feldo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\miche\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +32,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\LogicaNegocio\\LogicaNegocio.csproj": {
-                "projectPath": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\LogicaNegocio\\LogicaNegocio.csproj"
+              "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\LogicaNegocio\\LogicaNegocio.csproj": {
+                "projectPath": "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\LogicaNegocio\\LogicaNegocio.csproj"
               }
             }
           }
@@ -38,7 +42,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net7.0": {
@@ -71,21 +81,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\DTOs\\DTOs.csproj": {
+    "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\DTOs\\DTOs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\DTOs\\DTOs.csproj",
+        "projectUniqueName": "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\DTOs\\DTOs.csproj",
         "projectName": "DTOs",
-        "projectPath": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\DTOs\\DTOs.csproj",
-        "packagesPath": "C:\\Users\\feldo\\.nuget\\packages\\",
-        "outputPath": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\DTOs\\obj\\",
+        "projectPath": "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\DTOs\\DTOs.csproj",
+        "packagesPath": "C:\\Users\\miche\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\DTOs\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\feldo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\miche\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -105,7 +119,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net7.0": {
@@ -126,21 +146,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\LogicaAplicacion\\LogicaAplicacion.csproj": {
+    "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\LogicaAplicacion\\LogicaAplicacion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\LogicaAplicacion\\LogicaAplicacion.csproj",
+        "projectUniqueName": "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\LogicaAplicacion\\LogicaAplicacion.csproj",
         "projectName": "LogicaAplicacion",
-        "projectPath": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\LogicaAplicacion\\LogicaAplicacion.csproj",
-        "packagesPath": "C:\\Users\\feldo\\.nuget\\packages\\",
-        "outputPath": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\LogicaAplicacion\\obj\\",
+        "projectPath": "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\LogicaAplicacion\\LogicaAplicacion.csproj",
+        "packagesPath": "C:\\Users\\miche\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\LogicaAplicacion\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\feldo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\miche\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -154,14 +178,14 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\AccesoDatos\\AccesoDatos.csproj": {
-                "projectPath": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\AccesoDatos\\AccesoDatos.csproj"
+              "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\AccesoDatos\\AccesoDatos.csproj": {
+                "projectPath": "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\AccesoDatos\\AccesoDatos.csproj"
               },
-              "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\DTOs\\DTOs.csproj": {
-                "projectPath": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\DTOs\\DTOs.csproj"
+              "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\DTOs\\DTOs.csproj": {
+                "projectPath": "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\DTOs\\DTOs.csproj"
               },
-              "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\LogicaNegocio\\LogicaNegocio.csproj": {
-                "projectPath": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\LogicaNegocio\\LogicaNegocio.csproj"
+              "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\LogicaNegocio\\LogicaNegocio.csproj": {
+                "projectPath": "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\LogicaNegocio\\LogicaNegocio.csproj"
               }
             }
           }
@@ -170,7 +194,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net7.0": {
@@ -197,21 +227,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\LogicaNegocio\\LogicaNegocio.csproj": {
+    "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\LogicaNegocio\\LogicaNegocio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\LogicaNegocio\\LogicaNegocio.csproj",
+        "projectUniqueName": "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\LogicaNegocio\\LogicaNegocio.csproj",
         "projectName": "LogicaNegocio",
-        "projectPath": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\LogicaNegocio\\LogicaNegocio.csproj",
-        "packagesPath": "C:\\Users\\feldo\\.nuget\\packages\\",
-        "outputPath": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\LogicaNegocio\\obj\\",
+        "projectPath": "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\LogicaNegocio\\LogicaNegocio.csproj",
+        "packagesPath": "C:\\Users\\miche\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\LogicaNegocio\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\feldo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\miche\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -231,7 +265,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net7.0": {
@@ -252,21 +292,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\WebAPI\\WebAPI.csproj": {
+    "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\WebAPI\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\WebAPI\\WebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\WebAPI\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\WebAPI\\WebAPI.csproj",
-        "packagesPath": "C:\\Users\\feldo\\.nuget\\packages\\",
-        "outputPath": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\WebAPI\\obj\\",
+        "projectPath": "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\WebAPI\\WebAPI.csproj",
+        "packagesPath": "C:\\Users\\miche\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\WebAPI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\feldo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\miche\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -274,21 +318,20 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\AccesoDatos\\AccesoDatos.csproj": {
-                "projectPath": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\AccesoDatos\\AccesoDatos.csproj"
+              "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\AccesoDatos\\AccesoDatos.csproj": {
+                "projectPath": "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\AccesoDatos\\AccesoDatos.csproj"
               },
-              "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\DTOs\\DTOs.csproj": {
-                "projectPath": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\DTOs\\DTOs.csproj"
+              "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\DTOs\\DTOs.csproj": {
+                "projectPath": "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\DTOs\\DTOs.csproj"
               },
-              "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\LogicaAplicacion\\LogicaAplicacion.csproj": {
-                "projectPath": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\LogicaAplicacion\\LogicaAplicacion.csproj"
+              "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\LogicaAplicacion\\LogicaAplicacion.csproj": {
+                "projectPath": "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\LogicaAplicacion\\LogicaAplicacion.csproj"
               }
             }
           }
@@ -297,7 +340,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net7.0": {
@@ -341,7 +390,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

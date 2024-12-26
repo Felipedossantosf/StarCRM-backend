@@ -18,10 +18,6 @@ namespace DTOs.Clientes
         public string Direccion { get; set; }
         public string SitioWeb { get; set; }
         public string TipoComercial { get; set; }
-        public string Paises { get; set; }
-        public string TipoMercaderia { get; set; }
-        public string Frecuencia { get; set; }
-        public string MediosTransporte { get; set; }
         public string Zafras { get; set; }
         public string Notas { get; set; }
         public DateTime? FechaUltCarga { get; set; }

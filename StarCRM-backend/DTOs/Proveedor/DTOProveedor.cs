@@ -18,8 +18,6 @@ namespace DTOs.Proveedor
         public string Direccion { get; set; }
         public string SitioWeb { get; set; }
         public string TipoComercial { get; set; }
-        public string Paises { get; set; }
-        public string TipoMercaderia { get; set; }
      
     }
 }
