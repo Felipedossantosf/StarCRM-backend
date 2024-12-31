@@ -34,6 +34,24 @@
             </summary>
             <returns></returns> 
         </member>
+        <member name="M:WebAPI.Controllers.NotificacionController.ObtenerNotificaciones(System.Int32)">
+            <summary>
+            Servicio que permite obtener listado de notificaciones de un usuario
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI.Controllers.NotificacionController.Post(DTOs.Notificaciones.DTOCrearNotificacion)">
+            <summary>
+            Servicio que permite crear notificacion para distintos usuarios
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI.Controllers.NotificacionController.Put(System.Int32,DTOs.Notificaciones.DTONotificacionUsuario)">
+            <summary>
+            Servicio que permite cambiar estado de la notificación
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:WebAPI.Controllers.UsuarioController.Get">
             <summary>
             Servicio que permite obtener listado de usuarios
@@ -57,6 +75,12 @@
             Servicio que permite Loguear un usuario
             </summary>
             <returns></returns>        
+        </member>
+        <member name="M:WebAPI.Controllers.UsuarioController.Put(System.Int32,DTOs.Usuarios.DTOUsuarioRegistro)">
+            <summary>
+            Servicio que permite modificar un usuario
+            </summary>
+            <returns></returns>  
         </member>
     </members>
 </doc>

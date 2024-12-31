@@ -3,9 +3,13 @@ using AccesoDatos;
 using AccesoDatos.Interfaces;
 using AccesoDatos.Repositorios;
 using LogicaAplicacion.CasosDeUso.Clientes;
+using LogicaAplicacion.CasosDeUso.Notificaciones;
+using LogicaAplicacion.CasosDeUso.NotificacionesUsuario;
 using LogicaAplicacion.CasosDeUso.Proveedor;
 using LogicaAplicacion.CasosDeUso.Usuarios;
 using LogicaAplicacion.Interfaces.Clientes;
+using LogicaAplicacion.Interfaces.Notificaciones;
+using LogicaAplicacion.Interfaces.NotificacionesUsuario;
 using LogicaAplicacion.Interfaces.Proveedor;
 using LogicaAplicacion.Interfaces.Usuarios;
 using LogicaNegocio.Entidades;
@@ -65,7 +69,8 @@ namespace WebAPI
             // REPOSITORIOS
             builder.Services.AddScoped<IRepositorioUsuario, RepositorioUsuario>();
             builder.Services.AddScoped<IRepositorioComercial, RepositorioComercial>();
-            
+            builder.Services.AddScoped<IRepositorio<Notificacion>, RepositorioNotificacion>();
+            builder.Services.AddScoped<IRepositorioNotificacionUsuario, RepositorioNotificacionUsuario>();
 
             // CASOS DE USO
 
@@ -74,6 +79,7 @@ namespace WebAPI
             builder.Services.AddScoped<ILogin, Login>();
             builder.Services.AddScoped<IObtenerUsuario, ObtenerUsuario>();
             builder.Services.AddScoped<IObtenerUsuarios, ObtenerUsuarios>();
+            builder.Services.AddScoped<IModificarUsuario, ModificarUsuario>();
 
             // Cliente
             builder.Services.AddScoped<IAltaCliente, AltaCliente>();
@@ -89,8 +95,10 @@ namespace WebAPI
             builder.Services.AddScoped<IEliminarProveedor, EliminarProveedor>();
             builder.Services.AddScoped<IModificarProveedor, ModificarProveedor>();
 
-
-
+            // Notificaciones
+            builder.Services.AddScoped<IAltaNotificacionUsuario, AltaNotificacionUsuario>();
+            builder.Services.AddScoped<IGetNotificacionesDeUsuario, GetNotificacionesDeUsuario>();
+            builder.Services.AddScoped<IModificarNotificacionUsuario, ModificarNotificacionUsuario>();
 
 
 
