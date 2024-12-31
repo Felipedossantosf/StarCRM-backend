@@ -92,9 +92,35 @@ namespace AccesoDatos.Repositorios
             throw new NotImplementedException();
         }
 
-        public void Update(int id, Usuario obj)
+        public void Update(int id, Usuario user)
         {
-            throw new NotImplementedException();
+            if (user == null)
+                throw new ArgumentNullException("Usuario recibido por parámetro nulo.");
+
+            var usuarioExistente = _db.Usuarios.FirstOrDefault(u => u.UserId == id);
+            if (usuarioExistente == null)
+                throw new UsuarioException($"No se encontró ningún usuario con el id: {id}");
+
+            try
+            {
+                usuarioExistente.Username = user.Username;
+                usuarioExistente.Email = user.Email;
+                usuarioExistente.Password = user.Password;
+                usuarioExistente.Nombre = user.Nombre;
+                usuarioExistente.Apellido = user.Apellido;
+                usuarioExistente.Rol = user.Rol;
+                usuarioExistente.Cargo = user.Cargo;
+
+                _db.SaveChanges();
+            }
+            catch(UsuarioException e)
+            {
+                throw new UsuarioException(e.Message);
+            }
+            catch(Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using DTOs.Usuarios;
+﻿using DTOs.Clientes;
+using DTOs.Usuarios;
+using LogicaAplicacion.CasosDeUso.Clientes;
 using LogicaAplicacion.Interfaces.Usuarios;
 using LogicaNegocio.Excepciones;
 using Microsoft.AspNetCore.Mvc;
@@ -16,19 +18,22 @@ namespace WebAPI.Controllers
         public ILogin LoginUsuario { get; set; }
         public IObtenerUsuario ObtenerUsuario { get; set; } 
         public IObtenerUsuarios ObtenerUsuarios { get; set; }
+        public IModificarUsuario ModificarUsuario { get; set; }
 
         public UsuarioController
         (
             IAltaUsuario altaUsuario,
             ILogin loginUsuario,
             IObtenerUsuario obtenerUsuario,
-            IObtenerUsuarios obtenerUsuarios
+            IObtenerUsuarios obtenerUsuarios,
+            IModificarUsuario modificarUsuario
         )
         {
             AltaUsuario = altaUsuario;
             LoginUsuario = loginUsuario;
             ObtenerUsuario = obtenerUsuario;
             ObtenerUsuarios = obtenerUsuarios;
+            ModificarUsuario = modificarUsuario;
         }
 
         /// <summary>
@@ -157,6 +162,57 @@ namespace WebAPI.Controllers
             return Ok(dtoUsuarioLogueado);    
                            
         }
+
+        /// <summary>
+        /// Servicio que permite modificar un usuario
+        /// </summary>
+        /// <returns></returns>  
+        // PUT api/<ClienteController>/5
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, [FromBody] DTOUsuarioRegistro dtoUsuario)
+        {
+            try
+            {
+                if (dtoUsuario == null)
+                    return BadRequest("El cuerpo de la solicitud no es válido.");
+
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+
+                dtoUsuario = ModificarUsuario.Modificar(id, dtoUsuario);
+
+                return Ok(new { message = "Usuario actualizado correctamente.", usuario = dtoUsuario });
+            }
+            catch(ArgumentNullException e)
+            {
+                var errorResponse = new
+                {
+                    status = "error",
+                    message = e.Message,
+                    timestamp = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ")
+                };
+                return BadRequest(errorResponse);
+            }
+            catch (UsuarioException e)
+            {
+                var errorResponse = new
+                {
+                    status = "error",
+                    message = e.Message,
+                    timestamp = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ")
+                };
+                return NotFound(errorResponse);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { mesage = "Ocurrió un error al actualizar al usuario", details = ex.Message });
+            }
+        }
+
 
     }
 }

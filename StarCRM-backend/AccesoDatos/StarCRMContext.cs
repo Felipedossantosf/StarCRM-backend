@@ -13,6 +13,8 @@ namespace AccesoDatos
         public DbSet<Usuario> Usuarios { get; set; }   
         public DbSet<Comercial> Comerciales { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Notificacion> Notificaciones { get; set; }
+        public DbSet<NotificacionUsuario> NotificacionesUsuario { get; set; }
 
         public StarCRMContext(DbContextOptions<StarCRMContext> options) : base(options) { }
         public StarCRMContext() { }
@@ -76,6 +78,19 @@ namespace AccesoDatos
                 .HasDiscriminator<string>("TipoComercial")
                 .HasValue<Cliente>("Cliente")
                 .HasValue<Proveedor>("Proveedor");
+
+            modelBuilder.Entity<NotificacionUsuario>()
+                .HasOne(nu => nu.notificacion)
+                .WithMany()
+                .HasForeignKey(nu => nu.notificacion_id)
+                .OnDelete(DeleteBehavior.Cascade); // Configuración de comportamiento de eliminación adecuado.
+
+            modelBuilder.Entity<Notificacion>()
+                .HasOne<Cliente>() // Configura la relación con Cliente si es necesaria.
+                .WithMany()
+                .HasForeignKey(n => n.cliente_id)
+                .OnDelete(DeleteBehavior.Restrict); // O DeleteBehavior.SetNull
+
 
             base.OnModelCreating(modelBuilder);
         }
