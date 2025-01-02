@@ -46,3 +46,5 @@ C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarC
 C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\LogicaNegocio\bin\Debug\net7.0\BCrypt.Net-Next.dll
 C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\LogicaNegocio\obj\Debug\net7.0\LogicaNegocio.csproj.AssemblyReference.cache
 C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\LogicaNegocio\obj\Debug\net7.0\LogicaNe.53575492.Up2Date
+C:\ort2024\StarCRM-backend\StarCRM-backend\LogicaNegocio\bin\Debug\net7.0\BCrypt.Net-Next.dll
+C:\ort2024\StarCRM-backend\StarCRM-backend\LogicaNegocio\obj\Debug\net7.0\LogicaNegocio.csproj.CopyComplete

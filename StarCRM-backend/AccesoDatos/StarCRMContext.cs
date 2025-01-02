@@ -79,6 +79,14 @@ namespace AccesoDatos
                 .HasValue<Cliente>("Cliente")
                 .HasValue<Proveedor>("Proveedor");
 
+
+            // Notificaciones
+            modelBuilder.Entity<Notificacion>()
+                .ToTable("Notificacion");
+
+            modelBuilder.Entity<NotificacionUsuario>()
+                .ToTable("NotificacionUsuario");
+
             modelBuilder.Entity<NotificacionUsuario>()
                 .HasOne(nu => nu.notificacion)
                 .WithMany()

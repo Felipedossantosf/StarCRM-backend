@@ -52,9 +52,8 @@ namespace AccesoDatos.Repositorios
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                throw new Exception($"Error al guardar en la base de datos en RepositorioNotificacionUsuario: {e.InnerException?.Message ?? e.Message}", e);
             }
-            
         }
 
         public IEnumerable<NotificacionUsuario> FindAll()
@@ -72,6 +71,9 @@ namespace AccesoDatos.Repositorios
 
         public IEnumerable<NotificacionUsuario> ObtenerNotificacionesPorUsuario(int userId)
         {
+            if (userId <= 0)
+                throw new ArgumentException("El id del usuario debe ser mayor a 0.");
+
             return _db.NotificacionesUsuario
                 .Include(nu => nu.notificacion)
                 .Where(nu => nu.usuario_id == userId)

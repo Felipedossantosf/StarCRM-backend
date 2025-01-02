@@ -220,3 +220,4 @@ C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarC
 C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\AccesoDatos\obj\Debug\net7.0\AccesoDatos.genruntimeconfig.cache
 C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\AccesoDatos\obj\Debug\net7.0\ref\AccesoDatos.dll
 C:\Users\miche\OneDrive\Escritorio\ort\Proyecto integrador\StarCRM-backend\StarCRM-backend\AccesoDatos\bin\Debug\net7.0\BCrypt.Net-Next.dll
+C:\ort2024\StarCRM-backend\StarCRM-backend\AccesoDatos\bin\Debug\net7.0\BCrypt.Net-Next.dll
