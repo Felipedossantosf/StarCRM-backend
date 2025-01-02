@@ -3,7 +3,6 @@ using AccesoDatos;
 using AccesoDatos.Interfaces;
 using AccesoDatos.Repositorios;
 using LogicaAplicacion.CasosDeUso.Clientes;
-using LogicaAplicacion.CasosDeUso.Notificaciones;
 using LogicaAplicacion.CasosDeUso.NotificacionesUsuario;
 using LogicaAplicacion.CasosDeUso.Proveedor;
 using LogicaAplicacion.CasosDeUso.Usuarios;

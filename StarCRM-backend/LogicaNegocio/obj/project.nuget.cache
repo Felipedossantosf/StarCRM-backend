@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "cQwlI6P92tc=",
+  "dgSpecHash": "XnTe35ulJuyGR2XZPr6xOlMpff7gIZAbICJ27b05Q0eRQm27g1o7ru78RB5ltrkkQop2VpNNHcvTII7iEEAmNw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\miche\\OneDrive\\Escritorio\\ort\\Proyecto integrador\\StarCRM-backend\\StarCRM-backend\\LogicaNegocio\\LogicaNegocio.csproj",
+  "projectFilePath": "C:\\ort2024\\StarCRM-backend\\StarCRM-backend\\LogicaNegocio\\LogicaNegocio.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\miche\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512"
+    "C:\\Users\\feldo\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512"
   ],
   "logs": []
 }

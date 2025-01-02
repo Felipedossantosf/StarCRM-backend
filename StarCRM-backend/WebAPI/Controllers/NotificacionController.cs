@@ -29,30 +29,41 @@ namespace WebAPI.Controllers
         }
 
 
-        // GET: api/<NotificacionController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/<NotificacionController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
         /// <summary>
         /// Servicio que permite obtener listado de notificaciones de un usuario
         /// </summary>
         /// <returns></returns>
-        [ProducesResponseType(StatusCodes.Status200OK)]        
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpGet("{usuarioId}")]
         public IActionResult ObtenerNotificaciones(int usuarioId)
         {
-            var notificaciones = GetNotificacionesDeUsuario.GetNotificacionesDe(usuarioId);
-            return Ok(notificaciones);
+            try
+            {
+                var notificaciones = GetNotificacionesDeUsuario.GetNotificacionesDe(usuarioId);
+                if (!notificaciones.Any())
+                    return NotFound($"No se encontraron notificaciones para el usuario con id: {usuarioId}");
+                
+                return Ok(notificaciones);
+            }
+            catch(KeyNotFoundException e)
+            {
+                return NotFound(e.Message);
+            }
+            catch(ArgumentException e)
+            {
+                return BadRequest(e.Message);
+            }
+            catch(Exception e)
+            {
+                return StatusCode(500, new
+                {
+                    message = "Ocurrió un error al obtener las notificaciones.",
+                    details = e.InnerException?.Message ?? e.Message
+                });
+            }
         }
 
         /// <summary>
@@ -81,6 +92,10 @@ namespace WebAPI.Controllers
                 AltaNotificacionUsuario.Alta(dtoNotificacion, request.usuariosId);
 
                 return Ok("Notificación creada con éxito.");
+            }
+            catch(KeyNotFoundException e)
+            {
+                return BadRequest(e.Message);
             }
             catch(ArgumentNullException e)
             {
@@ -134,11 +149,6 @@ namespace WebAPI.Controllers
                 return StatusCode(500, new { mesage = "Ocurrió un error al actualizar la notificación", details = ex.Message });
             }
         }
-
-        // DELETE api/<NotificacionController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        
     }
 }

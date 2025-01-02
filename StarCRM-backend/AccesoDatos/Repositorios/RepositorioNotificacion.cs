@@ -25,7 +25,7 @@ namespace AccesoDatos.Repositorios
 
             try
             {
-                notificacion.validar();
+                //notificacion.validar();
                 _db.Notificaciones.Add(notificacion);
                 _db.SaveChanges();
             }
@@ -33,9 +33,9 @@ namespace AccesoDatos.Repositorios
             {
                 throw new NotificacionException(e.Message);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                throw new Exception(e.Message);
+                throw new Exception($"Error al guardar en la base de datos en RepositorioNotificacion: {e.InnerException?.Message ?? e.Message}", e);
             }
         }
 
