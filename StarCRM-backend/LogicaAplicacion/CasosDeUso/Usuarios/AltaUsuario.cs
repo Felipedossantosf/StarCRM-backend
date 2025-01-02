@@ -22,17 +22,14 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
 
         public DTOUsuarioRegistro Registrar(DTOUsuarioRegistro usuario)
         {
-            Usuario nuevoUsuario = new Usuario()
-            {
-                Username = usuario.Username,
-                Email = usuario.Email,
-                // Encrypt de contraseña
-                Password = EncriptarPass(usuario.Password),
-                Rol = usuario.Rol,
-                Nombre = usuario.Nombre,
-                Apellido = usuario.Apellido,
-                Cargo = usuario.Cargo,
-            };
+            Usuario nuevoUsuario = new Usuario();
+            nuevoUsuario.Username = usuario.Username;
+            nuevoUsuario.Email = usuario.Email;
+            nuevoUsuario.Password = nuevoUsuario.EncriptarPass(usuario.Password);
+            nuevoUsuario.Rol = usuario.Rol;
+            nuevoUsuario.Nombre = usuario.Nombre;
+            nuevoUsuario.Apellido = usuario.Apellido;
+            nuevoUsuario.Cargo = usuario.Cargo;
             try
             {
                 nuevoUsuario.validar();
@@ -48,11 +45,5 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
             return usuario;
         }
 
-        // Encrypt de contraseña
-        private string EncriptarPass(string password)
-        {
-            return BCrypt.Net.BCrypt.HashPassword(password, BCrypt.Net.BCrypt.GenerateSalt(10));
-
-        }
     }
 }

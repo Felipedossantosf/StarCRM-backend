@@ -1,8 +1,7 @@
-﻿using DTOs.Clientes;
-using DTOs.Usuarios;
-using LogicaAplicacion.CasosDeUso.Clientes;
+﻿using DTOs.Usuarios;
 using LogicaAplicacion.Interfaces.Usuarios;
 using LogicaNegocio.Excepciones;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -185,7 +184,7 @@ namespace WebAPI.Controllers
 
                 dtoUsuario = ModificarUsuario.Modificar(id, dtoUsuario);
 
-                return Ok(new { message = "Usuario actualizado correctamente.", usuario = dtoUsuario });
+                return Ok(new { message = "Usuario actualizado correctamente.", usuario = dtoUsuario});
             }
             catch(ArgumentNullException e)
             {

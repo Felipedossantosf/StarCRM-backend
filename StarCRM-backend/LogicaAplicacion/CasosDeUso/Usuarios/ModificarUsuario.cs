@@ -29,7 +29,7 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
             {
                 usuarioBuscado.Username = dtoUser.Username;
                 usuarioBuscado.Email = dtoUser.Email;
-                usuarioBuscado.Password = dtoUser.Password;
+                usuarioBuscado.Password = usuarioBuscado.EncriptarPass(dtoUser.Password);
                 usuarioBuscado.Rol = dtoUser.Rol;
                 usuarioBuscado.Nombre = dtoUser.Nombre;
                 usuarioBuscado.Apellido = dtoUser.Apellido;

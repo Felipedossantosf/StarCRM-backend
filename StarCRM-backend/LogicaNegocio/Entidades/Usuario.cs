@@ -1,14 +1,8 @@
 ﻿using LogicaNegocio.Excepciones;
 using LogicaNegocio.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace LogicaNegocio.Entidades
 {
@@ -63,18 +57,24 @@ namespace LogicaNegocio.Entidades
 
 
         // Falta encriptar la contraseña ingresada por el usuario (!)
-        private static string EncriptarPassword(string valor)
+        //private static string EncriptarPassword(string valor)
+        //{
+        //    using (SHA256 sha256 = SHA256.Create())
+        //    {
+        //        byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(valor));
+        //        StringBuilder passEncriptada = new StringBuilder();
+        //        for (int i = 0; i < bytes.Length; i++)
+        //        {
+        //            passEncriptada.Append(bytes[i].ToString("x2")); // x2 es para guardar carácteres en hexagesimal
+        //        }
+        //        return passEncriptada.ToString();
+        //    }
+
+        //}
+        // Encrypt de contraseña
+        public string EncriptarPass(string password)
         {
-            using (SHA256 sha256 = SHA256.Create())
-            {
-                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(valor));
-                StringBuilder passEncriptada = new StringBuilder();
-                for (int i = 0; i < bytes.Length; i++)
-                {
-                    passEncriptada.Append(bytes[i].ToString("x2")); // x2 es para guardar carácteres en hexagesimal
-                }
-                return passEncriptada.ToString();
-            }
+            return BCrypt.Net.BCrypt.HashPassword(password, BCrypt.Net.BCrypt.GenerateSalt(10));
 
         }
     }
