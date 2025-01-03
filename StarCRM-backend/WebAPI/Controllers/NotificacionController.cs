@@ -52,7 +52,7 @@ namespace WebAPI.Controllers
             {
                 return NotFound(e.Message);
             }
-            catch(ArgumentException e)
+            catch(ArgumentNullException e)
             {
                 return BadRequest(e.Message);
             }
