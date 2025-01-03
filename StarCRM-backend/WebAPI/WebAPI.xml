@@ -4,6 +4,36 @@
         <name>WebAPI</name>
     </assembly>
     <members>
+        <member name="M:WebAPI.Controllers.AsignacionController.Get">
+            <summary>
+            Servicio que permite obtener listado de todas las asignaciones
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI.Controllers.AsignacionController.Get(System.Int32)">
+            <summary>
+            Servicio que permite obtener una asignación por su id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI.Controllers.AsignacionController.Post(DTOs.Asignaciones.DTOAsignacion)">
+            <summary>
+            Servicio que permite dar de alta una asignación
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI.Controllers.AsignacionController.Put(System.Int32,DTOs.Asignaciones.DTOModificarAsignacion)">
+            <summary>
+            Servicio que permite actualizar una asignación
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI.Controllers.AsignacionController.Delete(System.Int32)">
+            <summary>
+            Servicio que permite eliminar una asignación
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:WebAPI.Controllers.ClienteController.Get">
             <summary>
             Servicio que permite obtener listado de clientes

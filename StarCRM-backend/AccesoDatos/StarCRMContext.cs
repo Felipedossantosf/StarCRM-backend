@@ -15,7 +15,7 @@ namespace AccesoDatos
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Notificacion> Notificaciones { get; set; }
         public DbSet<NotificacionUsuario> NotificacionesUsuario { get; set; }
-
+        public DbSet<Asignacion> Asignaciones { get; set; }
         public StarCRMContext(DbContextOptions<StarCRMContext> options) : base(options) { }
         public StarCRMContext() { }
 
@@ -98,6 +98,10 @@ namespace AccesoDatos
                 .WithMany()
                 .HasForeignKey(n => n.cliente_id)
                 .OnDelete(DeleteBehavior.Restrict); // O DeleteBehavior.SetNull
+
+            // Asignaciones
+            modelBuilder.Entity<Asignacion>()
+                .ToTable("Asignacion");
 
 
             base.OnModelCreating(modelBuilder);
