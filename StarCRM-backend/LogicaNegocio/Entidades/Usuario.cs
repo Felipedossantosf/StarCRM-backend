@@ -20,7 +20,7 @@ namespace LogicaNegocio.Entidades
 
         // Contraseña (No guardarla en texto plano en producción)
         [Required]
-        [MinLength(8, ErrorMessage = "La contraseña debe tener al menos 8 caracteres.")]      
+        [MinLength(8, ErrorMessage = "La contraseña debe tener al menos 8 caracteres.")]
         public string Password { get; set; }
 
         //[NotMapped]
@@ -30,7 +30,7 @@ namespace LogicaNegocio.Entidades
         public string Apellido { get; set; }
         public string Cargo { get; set; }
 
-        
+
 
 
         public Usuario() { }
@@ -47,11 +47,11 @@ namespace LogicaNegocio.Entidades
 
         public void validar()
         {
-            if(String.IsNullOrEmpty(Email) || String.IsNullOrEmpty(Password)) 
+            if (String.IsNullOrEmpty(Email) || String.IsNullOrEmpty(Password))
             {
                 throw new UsuarioException("Campos vacíos.");
             }
-           
+
             validarMail();
         }
 
@@ -74,8 +74,7 @@ namespace LogicaNegocio.Entidades
         // Encrypt de contraseña
         public string EncriptarPass(string password)
         {
-            return BCrypt.Net.BCrypt.HashPassword(password, BCrypt.Net.BCrypt.GenerateSalt(10));
-
+            return BCrypt.Net.BCrypt.HashPassword(password);
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using DTOs.Usuarios;
 using LogicaAplicacion.Interfaces.Usuarios;
 using LogicaNegocio.Excepciones;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -15,7 +14,7 @@ namespace WebAPI.Controllers
 
         public IAltaUsuario AltaUsuario { get; set; }
         public ILogin LoginUsuario { get; set; }
-        public IObtenerUsuario ObtenerUsuario { get; set; } 
+        public IObtenerUsuario ObtenerUsuario { get; set; }
         public IObtenerUsuarios ObtenerUsuarios { get; set; }
         public IModificarUsuario ModificarUsuario { get; set; }
 
@@ -40,7 +39,7 @@ namespace WebAPI.Controllers
         /// </summary>
         /// <returns></returns>
         // GET: api/<UsuarioController>
-        [ProducesResponseType(StatusCodes.Status200OK)]        
+        [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpGet]
         public IActionResult Get()
@@ -49,7 +48,8 @@ namespace WebAPI.Controllers
             {
                 IEnumerable<DTOUsuarioRegistro> dtoUsuarios = ObtenerUsuarios.ObtenerUsuarios();
                 return Ok(dtoUsuarios);
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 return StatusCode(500);
             }
@@ -69,17 +69,18 @@ namespace WebAPI.Controllers
         {
             try
             {
-                if(id <= 0)
+                if (id <= 0)
                 {
                     return BadRequest();
                 }
                 DTOUsuarioRegistro dtoUser = ObtenerUsuario.FindById(id);
-                if(dtoUser.UserId == 0)
+                if (dtoUser.UserId == 0)
                 {
                     return BadRequest();
                 }
                 return Ok(dtoUser);
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 return StatusCode(500);
             }
@@ -110,7 +111,7 @@ namespace WebAPI.Controllers
                 dtoUsuario = AltaUsuario.Registrar(dtoUsuario);
                 return CreatedAtRoute("FindByIdUsuario", new { Id = dtoUsuario.UserId }, dtoUsuario);
             }
-            catch(UsuarioException ue)
+            catch (UsuarioException ue)
             {
                 var errorResponse = new
                 {
@@ -149,17 +150,16 @@ namespace WebAPI.Controllers
                 };
                 return NotFound(errorResponse);
             }
-            
+
             DTOUsuarioLogueado dtoUsuarioLogueado = new DTOUsuarioLogueado()
-            {   
-                Username = dtoUsuario.Username,    
+            {
+                Username = dtoUsuario.Username,
                 Token = TokenManager.CrearToken(dtoUsuario),
                 Rol = dtoUsuario.Rol,
                 Nombre = dtoUsuario.Nombre,
                 Apellido = dtoUsuario.Apellido
-            };    
-            return Ok(dtoUsuarioLogueado);    
-                           
+            };
+            return Ok(dtoUsuarioLogueado);
         }
 
         /// <summary>
@@ -182,19 +182,18 @@ namespace WebAPI.Controllers
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
 
+                // Verificar que el usuario exista
+                var user = ObtenerUsuario.FindById(id);
+                if (user == null)
+                    return NotFound("Usuario no encontrado.");
+
+                if (!BCrypt.Net.BCrypt.Verify(dtoUsuario.ContraseñaActual, user.Password))
+                    return Unauthorized("Contraseña actual incorrecta.");
+
+                // Realizar la modificación
                 dtoUsuario = ModificarUsuario.Modificar(id, dtoUsuario);
 
-                return Ok(new { message = "Usuario actualizado correctamente.", usuario = dtoUsuario});
-            }
-            catch(ArgumentNullException e)
-            {
-                var errorResponse = new
-                {
-                    status = "error",
-                    message = e.Message,
-                    timestamp = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ")
-                };
-                return BadRequest(errorResponse);
+                return Ok(new { message = "Usuario actualizado correctamente.", usuario = dtoUsuario });
             }
             catch (UsuarioException e)
             {
@@ -208,10 +207,11 @@ namespace WebAPI.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { mesage = "Ocurrió un error al actualizar al usuario", details = ex.Message });
+                return StatusCode(500, new { message = "Error al actualizar usuario", details = ex.Message });
             }
         }
-
-
     }
 }
+
+
+

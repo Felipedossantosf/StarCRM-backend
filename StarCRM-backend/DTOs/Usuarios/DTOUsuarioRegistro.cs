@@ -16,6 +16,6 @@ namespace DTOs.Usuarios
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Cargo { get; set; }
-
+        public string ContraseñaActual { get; set; }
     }
 }
