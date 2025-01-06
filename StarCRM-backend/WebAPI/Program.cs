@@ -2,11 +2,13 @@
 using AccesoDatos;
 using AccesoDatos.Interfaces;
 using AccesoDatos.Repositorios;
+using LogicaAplicacion.CasosDeUso.Actividades;
 using LogicaAplicacion.CasosDeUso.Asignaciones;
 using LogicaAplicacion.CasosDeUso.Clientes;
 using LogicaAplicacion.CasosDeUso.NotificacionesUsuario;
 using LogicaAplicacion.CasosDeUso.Proveedor;
 using LogicaAplicacion.CasosDeUso.Usuarios;
+using LogicaAplicacion.Interfaces.Actividades;
 using LogicaAplicacion.Interfaces.Asignaciones;
 using LogicaAplicacion.Interfaces.Clientes;
 using LogicaAplicacion.Interfaces.Notificaciones;
@@ -73,6 +75,7 @@ namespace WebAPI
             builder.Services.AddScoped<IRepositorio<Notificacion>, RepositorioNotificacion>();
             builder.Services.AddScoped<IRepositorioNotificacionUsuario, RepositorioNotificacionUsuario>();
             builder.Services.AddScoped<IRepositorio<Asignacion>, RepositorioAsignacion>();
+            builder.Services.AddScoped<IRepositorio<Actividad>, RepositorioActividad>();
 
             // CASOS DE USO
 
@@ -108,6 +111,10 @@ namespace WebAPI
             builder.Services.AddScoped<IModificarAsignacion, ModificarAsignacion>();
             builder.Services.AddScoped<IObtenerAsignaciones, ObtenerAsignaciones>();
             builder.Services.AddScoped<IEliminarAsignacion, EliminarAsignacion>();
+
+            // Historial de actividades
+            builder.Services.AddScoped<IObtenerActividad, ObtenerActividad>();
+            builder.Services.AddScoped<IObtenerActividades, ObtenerActividades>();
 
 
             builder.Services.AddCors(options =>

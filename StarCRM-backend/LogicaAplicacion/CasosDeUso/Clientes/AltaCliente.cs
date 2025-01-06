@@ -15,10 +15,15 @@ namespace LogicaAplicacion.CasosDeUso.Clientes
     public class AltaCliente : IAltaCliente
     {
         public IRepositorioComercial RepoComercial { get; set; }
-
-        public AltaCliente(IRepositorioComercial repoComercial)
+        public IRepositorio<Actividad> RepoActividad { get; set; }
+        public AltaCliente
+        (
+            IRepositorioComercial repoComercial,
+            IRepositorio<Actividad> repoActividad
+        )
         {
             RepoComercial = repoComercial;
+            RepoActividad = repoActividad;
         }
 
         DTOCliente IAltaCliente.AltaCliente(DTOCliente dtoCliente)
@@ -46,9 +51,17 @@ namespace LogicaAplicacion.CasosDeUso.Clientes
                 estado = dtoCliente.Estado,
             };
 
+            Actividad nuevaActividad = new Actividad()
+            {
+                fecha = DateTime.UtcNow,
+                descripcion = $"Nuevo cliente dado de alta: {nuevoCliente.nombre}",
+                usuario_id = 58
+            };
+
             try
             {
                 RepoComercial.Add(nuevoCliente);
+                RepoActividad.Add(nuevaActividad);
                 dtoCliente.Id = nuevoCliente.id;
             }
             catch(ComercialException comExc)
