@@ -16,6 +16,8 @@ namespace AccesoDatos
         public DbSet<Notificacion> Notificaciones { get; set; }
         public DbSet<NotificacionUsuario> NotificacionesUsuario { get; set; }
         public DbSet<Asignacion> Asignaciones { get; set; }
+        public DbSet<Actividad> Actividades { get; set; }
+
         public StarCRMContext(DbContextOptions<StarCRMContext> options) : base(options) { }
         public StarCRMContext() { }
 
@@ -103,6 +105,9 @@ namespace AccesoDatos
             modelBuilder.Entity<Asignacion>()
                 .ToTable("Asignacion");
 
+            // Actividades
+            modelBuilder.Entity<Actividad>()
+                .ToTable("Actividad");
 
             base.OnModelCreating(modelBuilder);
         }

@@ -16,12 +16,13 @@ namespace LogicaAplicacion.Tests.CasosDeUso.Clientes
     public class AltaClienteTests
     {
         private readonly Mock<IRepositorioComercial> _mockRepo;
+        private readonly Mock<IRepositorio<Actividad>> _mockRepoActividad;
         private readonly IAltaCliente _altaCliente;
 
         public AltaClienteTests()
         {
             _mockRepo = new Mock<IRepositorioComercial>();
-            _altaCliente = new AltaCliente(_mockRepo.Object);
+            _altaCliente = new AltaCliente(_mockRepo.Object, _mockRepoActividad.Object);
         }
 
         //[Fact]

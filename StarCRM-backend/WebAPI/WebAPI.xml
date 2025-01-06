@@ -4,6 +4,18 @@
         <name>WebAPI</name>
     </assembly>
     <members>
+        <member name="M:WebAPI.Controllers.ActividadController.Get">
+            <summary>
+            Servicio que permite obtener listado del historial de actividades
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI.Controllers.ActividadController.Get(System.Int32)">
+            <summary>
+            Servicio que permite obtener una actividad por su id
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:WebAPI.Controllers.AsignacionController.Get">
             <summary>
             Servicio que permite obtener listado de todas las asignaciones
