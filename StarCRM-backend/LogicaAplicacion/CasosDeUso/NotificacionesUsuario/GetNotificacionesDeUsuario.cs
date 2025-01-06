@@ -19,7 +19,7 @@ namespace LogicaAplicacion.CasosDeUso.NotificacionesUsuario
             RepoNotificacionUsuario = repoNotificacionUsuario;
         }
 
-        public IEnumerable<DTONotificacion> GetNotificacionesDe(int idUsuario)
+        public IEnumerable<DTOListarNotificacion> GetNotificacionesDe(int idUsuario)
         {
             try
             {
@@ -27,9 +27,10 @@ namespace LogicaAplicacion.CasosDeUso.NotificacionesUsuario
                 if (notificacionesUser == null || !notificacionesUser.Any())
                     throw new KeyNotFoundException($"No se encontraron notificaciones para el usuario con id: {idUsuario}");
 
-                IEnumerable<DTONotificacion> dtoNotificacioens = notificacionesUser.Select(nu => new DTONotificacion()
+                IEnumerable<DTOListarNotificacion> dtoNotificacioens = notificacionesUser.Select(nu => new DTOListarNotificacion()
                 {
-                    id = nu.notificacion.id,
+                    notificacion_usuario_id = nu.id,
+                    notificacion_id = nu.notificacion.id,
                     mensaje = nu.notificacion.mensaje,
                     fecha = nu.notificacion.fecha,
                     cliente_id = nu.notificacion.cliente_id,

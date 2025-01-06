@@ -9,6 +9,6 @@ namespace LogicaAplicacion.Interfaces.NotificacionesUsuario
 {
     public interface IGetNotificacionesDeUsuario
     {
-        IEnumerable<DTONotificacion> GetNotificacionesDe(int idUsuario);
+        IEnumerable<DTOListarNotificacion> GetNotificacionesDe(int idUsuario);
     }
 }
