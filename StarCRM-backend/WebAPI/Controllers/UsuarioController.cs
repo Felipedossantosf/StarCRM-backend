@@ -153,6 +153,7 @@ namespace WebAPI.Controllers
 
             DTOUsuarioLogueado dtoUsuarioLogueado = new DTOUsuarioLogueado()
             {
+                usuario_id = dtoUsuario.Id,
                 Username = dtoUsuario.Username,
                 Token = TokenManager.CrearToken(dtoUsuario),
                 Rol = dtoUsuario.Rol,
