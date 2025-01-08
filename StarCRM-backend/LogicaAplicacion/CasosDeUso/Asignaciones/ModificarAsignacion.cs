@@ -1,5 +1,6 @@
 ﻿using AccesoDatos.Interfaces;
 using DTOs.Asignaciones;
+using DTOs.Clientes;
 using LogicaAplicacion.Interfaces.Asignaciones;
 using LogicaNegocio.Entidades;
 using LogicaNegocio.Excepciones;
@@ -15,10 +16,17 @@ namespace LogicaAplicacion.CasosDeUso.Asignaciones
     {
         public IRepositorio<Asignacion> RepoAsignacion { get; set; }
         public IRepositorioUsuario RepoUsuario { get; set; }
-        public ModificarAsignacion(IRepositorio<Asignacion> repoAsignacion, IRepositorioUsuario repoUsuario)
+        public IRepositorioComercial RepoComercial { get; set; }
+
+        public ModificarAsignacion
+        (
+            IRepositorio<Asignacion> repoAsignacion,
+            IRepositorioUsuario repoUsuario,
+            IRepositorioComercial repoComercial)
         {
             RepoAsignacion = repoAsignacion;
             RepoUsuario = repoUsuario;
+            RepoComercial = repoComercial;
         }
 
         public DTOModificarAsignacion Modificar(int id, DTOModificarAsignacion dtoModificarAsignacion)
@@ -38,8 +46,19 @@ namespace LogicaAplicacion.CasosDeUso.Asignaciones
                 asignacionBuscada.estado = dtoModificarAsignacion.estado;
 
                 RepoAsignacion.Update(id, asignacionBuscada);
+
+                Cliente cliente = RepoComercial.FindById(asignacionBuscada.cliente_id) as Cliente;
                 
-                
+                if(dtoModificarAsignacion.estado.ToLower() == "aprobada")
+                {
+                    cliente.estado = "Asignado";
+                }else if(dtoModificarAsignacion.estado.ToLower() == "rechazada")
+                {
+                    cliente.estado = "Libre";
+                }
+
+                RepoComercial.Update(asignacionBuscada.cliente_id, cliente);
+
                 return dtoModificarAsignacion;
             }
             catch(ArgumentNullException e)
