@@ -17,12 +17,13 @@ namespace LogicaAplicacion.Tests.CasosDeUso.Proveedores
     public class ModificarProveedorTests
     {
         private readonly Mock<IRepositorioComercial> _mockRepo;
+        private readonly Mock<IRepositorio<Actividad>> _mockRepoActividad;
         private readonly ModificarProveedor _modificarProveedor;
 
         public ModificarProveedorTests()
         {
             _mockRepo = new Mock<IRepositorioComercial>();
-            _modificarProveedor = new ModificarProveedor(_mockRepo.Object);
+            _modificarProveedor = new ModificarProveedor(_mockRepo.Object, _mockRepoActividad.Object);
         }
 
         [Fact]

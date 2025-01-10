@@ -55,7 +55,7 @@ namespace LogicaAplicacion.CasosDeUso.Clientes
             {
                 fecha = DateTime.UtcNow,
                 descripcion = $"Nuevo cliente dado de alta: {nuevoCliente.nombre}",
-                usuario_id = 58
+                usuario_id = dtoCliente.usuario_id
             };
 
             try

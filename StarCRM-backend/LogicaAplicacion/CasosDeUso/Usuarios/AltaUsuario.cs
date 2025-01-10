@@ -14,10 +14,12 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
     public class AltaUsuario : IAltaUsuario
     {
         public IRepositorioUsuario RepoUsuarios { get; set; }
+        public IRepositorio<Actividad> RepoActividad { get; set; }
 
-        public AltaUsuario(IRepositorioUsuario repoUsuarios)
+        public AltaUsuario(IRepositorioUsuario repoUsuarios, IRepositorio<Actividad> repoActividad)
         {
             RepoUsuarios = repoUsuarios;
+            RepoActividad = repoActividad;
         }
 
         public DTOUsuarioRegistro Registrar(DTOUsuarioRegistro usuario)
@@ -30,19 +32,31 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
             nuevoUsuario.Nombre = usuario.Nombre;
             nuevoUsuario.Apellido = usuario.Apellido;
             nuevoUsuario.Cargo = usuario.Cargo;
+
+            Actividad nuevaActividad = new Actividad()
+            {
+                fecha = DateTime.UtcNow,
+                descripcion = $"Nuevo usuario creado: {usuario.Username}",
+                usuario_id = usuario.usuario_id
+            };
+
             try
             {
                 nuevoUsuario.validar();
                 RepoUsuarios.Add(nuevoUsuario);
                 usuario.UserId = nuevoUsuario.UserId;
-            }catch(UsuarioException ue)
+
+                RepoActividad.Add(nuevaActividad);
+
+                return usuario;
+            }
+            catch (UsuarioException ue)
             {
                 throw new UsuarioException(ue.Message);
             }catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-            return usuario;
         }
 
     }

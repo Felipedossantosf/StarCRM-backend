@@ -18,6 +18,9 @@ namespace DTOs.Proveedor
         public string Direccion { get; set; }
         public string SitioWeb { get; set; }
         public string TipoComercial { get; set; }
-     
+
+        // Id de usuario para registro de actividad
+        public int usuario_id { get; set; }
+
     }
 }

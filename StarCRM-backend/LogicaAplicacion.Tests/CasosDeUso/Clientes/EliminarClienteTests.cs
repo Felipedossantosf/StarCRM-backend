@@ -1,5 +1,6 @@
 ﻿using AccesoDatos.Interfaces;
 using LogicaAplicacion.CasosDeUso.Clientes;
+using LogicaNegocio.Entidades;
 using LogicaNegocio.Excepciones;
 using Moq;
 using System;
@@ -13,12 +14,13 @@ namespace LogicaAplicacion.Tests.CasosDeUso.Clientes
     public class EliminarClienteTests
     {
         private readonly Mock<IRepositorioComercial> _mockRepo;
+        private readonly Mock<IRepositorio<Actividad>> _mockRepoActividad;
         private readonly EliminarCliente _eliminarCliente;
 
         public EliminarClienteTests()
         {
             _mockRepo = new Mock<IRepositorioComercial>();
-            _eliminarCliente = new EliminarCliente(_mockRepo.Object);
+            _eliminarCliente = new EliminarCliente(_mockRepo.Object, _mockRepoActividad.Object);
         }
 
         [Fact]
@@ -26,9 +28,10 @@ namespace LogicaAplicacion.Tests.CasosDeUso.Clientes
         {
             // Arrange
             _mockRepo.Setup(repo => repo.Remove(1));
+            
 
             // Act
-            _eliminarCliente.Eliminar(1);
+            _eliminarCliente.Eliminar(1,1);
 
             // Assert
             _mockRepo.Verify(repo => repo.Remove(1), Times.Once);
@@ -38,7 +41,7 @@ namespace LogicaAplicacion.Tests.CasosDeUso.Clientes
         public void Eliminar_DeberiaLanzarException_CuandoIdEsInvalido()
         {
             // Act & Assert
-            Assert.Throws<ComercialException>(() => _eliminarCliente.Eliminar(0));
+            Assert.Throws<ComercialException>(() => _eliminarCliente.Eliminar(0, 0));
         }
     }
 }

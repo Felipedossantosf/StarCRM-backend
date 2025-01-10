@@ -8,6 +8,6 @@ namespace LogicaAplicacion.Interfaces.Proveedor
 {
     public interface IEliminarProveedor
     {
-        void Eliminar(int id);
+        void Eliminar(int id, int usuario_id);
     }
 }

@@ -70,7 +70,7 @@
             </summary>
             <returns></returns>  
         </member>
-        <member name="M:WebAPI.Controllers.ClienteController.Delete(System.Int32)">
+        <member name="M:WebAPI.Controllers.ClienteController.Delete(System.Int32,System.Int32)">
             <summary>
             Servicio que permite eliminar un cliente
             </summary>
