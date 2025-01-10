@@ -19,12 +19,13 @@ namespace LogicaAplicacion.Tests.CasosDeUso.Proveedores
     public class AltaProveedorTests
     {
         private readonly Mock<IRepositorioComercial> _mockRepo;
+        private readonly Mock<IRepositorio<Actividad>> _mockRepoActividad;
         private readonly IAltaProveedor _altaProveedor;
 
         public AltaProveedorTests()
         {
             _mockRepo = new Mock<IRepositorioComercial>();
-            _altaProveedor = new AltaProveedor(_mockRepo.Object);
+            _altaProveedor = new AltaProveedor(_mockRepo.Object, _mockRepoActividad.Object);
         }
 
         [Fact]

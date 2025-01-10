@@ -15,10 +15,11 @@ namespace LogicaAplicacion.CasosDeUso.Proveedor
     public class AltaProveedor : IAltaProveedor
     {
         public IRepositorioComercial RepoComercial { get; set; }
-
-        public AltaProveedor(IRepositorioComercial repoComercial)
+        public IRepositorio<Actividad> RepoActividad { get; set; }
+        public AltaProveedor(IRepositorioComercial repoComercial, IRepositorio<Actividad> repoActividad)
         {
             RepoComercial = repoComercial;
+            RepoActividad = repoActividad;
         }
         DTOProveedor  IAltaProveedor.AltaProveedor(DTOProveedor dTOProveedor)
         {
@@ -40,12 +41,22 @@ namespace LogicaAplicacion.CasosDeUso.Proveedor
                
             };
 
-            
+            Actividad nuevaActividad = new Actividad()
+            {
+                fecha = DateTime.UtcNow,
+                descripcion = $"Nuevo proveedor dado de alta: {dTOProveedor.Nombre}",
+                usuario_id = dTOProveedor.usuario_id
+            };
 
             try
             {
                 RepoComercial.Add(nuevoProveedor);
                 dTOProveedor.Id = nuevoProveedor.id;
+
+                RepoActividad.Add(nuevaActividad);
+
+
+                return dTOProveedor;
             }
             catch (ComercialException comExc)
             {
@@ -55,11 +66,14 @@ namespace LogicaAplicacion.CasosDeUso.Proveedor
             {
                 throw new ProveedorException(cliExc.Message);
             }
+            catch(ArgumentNullException e)
+            {
+                throw new ArgumentNullException(e.Message);
+            }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-            return dTOProveedor;
         }
     }
 }

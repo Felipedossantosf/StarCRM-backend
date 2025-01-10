@@ -17,5 +17,8 @@ namespace DTOs.Usuarios
         public string Apellido { get; set; }
         public string Cargo { get; set; }
         public string ContraseñaActual { get; set; }
+
+        // id de usuario admin para registro de actividad
+        public int usuario_id { get; set; }
     }
 }

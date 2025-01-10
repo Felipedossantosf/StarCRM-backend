@@ -17,16 +17,19 @@ namespace LogicaAplicacion.CasosDeUso.Asignaciones
         public IRepositorio<Asignacion> RepoAsignacion { get; set; }
         public IRepositorioUsuario RepoUsuario { get; set; }
         public IRepositorioComercial RepoComercial { get; set; }
+        public IRepositorio<Actividad> RepoActividad { get; set; }
 
         public ModificarAsignacion
         (
             IRepositorio<Asignacion> repoAsignacion,
             IRepositorioUsuario repoUsuario,
-            IRepositorioComercial repoComercial)
+            IRepositorioComercial repoComercial,
+            IRepositorio<Actividad> repoActividad)
         {
             RepoAsignacion = repoAsignacion;
             RepoUsuario = repoUsuario;
             RepoComercial = repoComercial;
+            RepoActividad = repoActividad;
         }
 
         public DTOModificarAsignacion Modificar(int id, DTOModificarAsignacion dtoModificarAsignacion)
@@ -57,7 +60,17 @@ namespace LogicaAplicacion.CasosDeUso.Asignaciones
                     cliente.estado = "Libre";
                 }
 
+                Actividad nuevaActividad = new Actividad()
+                {
+                    fecha = DateTime.UtcNow,
+                    descripcion = $"Asigancion de {cliente.nombre} cambio de estado a: {cliente.estado}",
+                    usuario_id = dtoModificarAsignacion.admin_id
+                };
+
+
                 RepoComercial.Update(asignacionBuscada.cliente_id, cliente);
+
+                RepoActividad.Add(nuevaActividad);
 
                 return dtoModificarAsignacion;
             }

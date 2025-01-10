@@ -14,9 +14,11 @@ namespace LogicaAplicacion.CasosDeUso.Clientes
     public class ModificarCliente : IModificarCliente
     {
         public IRepositorioComercial RepoComercial { get; set; }
-        public ModificarCliente(IRepositorioComercial repoComercial)
+        public IRepositorio<Actividad> RepoActividad { get; set; }
+        public ModificarCliente(IRepositorioComercial repoComercial, IRepositorio<Actividad> repoActividad)
         {
             RepoComercial = repoComercial;
+            RepoActividad = repoActividad;
         }
 
         public DTOCliente Modificar(int id, DTOCliente dtoCliente)
@@ -26,6 +28,13 @@ namespace LogicaAplicacion.CasosDeUso.Clientes
 
             if (clienteBuscado == null)
                 throw new ClienteException($"No se encontró cliente con el id: {id}");
+
+            Actividad nuevaActividad = new Actividad()
+            {
+                fecha = DateTime.UtcNow,
+                descripcion = $"Se modificó el cliente: {dtoCliente.Nombre}",
+                usuario_id = dtoCliente.usuario_id
+            };
 
             try
             {
@@ -45,6 +54,8 @@ namespace LogicaAplicacion.CasosDeUso.Clientes
 
                 RepoComercial.UpdateCliente(id, clienteBuscado);
                 dtoCliente.Id = id;
+
+                RepoActividad.Add(nuevaActividad);
 
                 return dtoCliente;
             }

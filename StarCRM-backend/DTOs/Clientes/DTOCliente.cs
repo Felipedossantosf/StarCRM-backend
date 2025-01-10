@@ -23,5 +23,8 @@ namespace DTOs.Clientes
         public DateTime? FechaUltCarga { get; set; }
         public bool? EsInactivo { get; set; }
         public string Estado { get; set; }
+
+        // Id de usuario para registro de actividad
+        public int usuario_id { get; set; }
     }
 }

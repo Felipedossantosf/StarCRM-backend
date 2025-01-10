@@ -193,7 +193,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int id, [FromBody] int usuario_id)
         {
             try
             {
@@ -201,7 +201,7 @@ namespace WebAPI.Controllers
                 {
                     return BadRequest("Error al intentar borrar clienta, id inválido.");
                 }
-                EliminarCliente.Eliminar(id);
+                EliminarCliente.Eliminar(id, usuario_id);
                 // Agregar un encabezado personalizado con el mensaje                
                 Response.Headers.Add("X-Message", "Cliente eliminado satisfactoriamente");
                 return NoContent();

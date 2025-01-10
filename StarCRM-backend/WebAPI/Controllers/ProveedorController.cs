@@ -164,18 +164,23 @@ namespace WebAPI.Controllers
 
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int id, [FromBody] int usuario_id)
         {
             try
             {
                 if (id == 0) return BadRequest("Error al intentar borrar clienta, id inválido.");
-                EliminarProveedor.Eliminar(id);
+                EliminarProveedor.Eliminar(id, usuario_id);
                 Response.Headers.Add("X-Message", "Proveedor eliminado satisfactoriamente");
                 return Ok(new { message = "Proveedor Eliminado correctamente", proveedor = id });
 
 
+            }
+            catch(ArgumentNullException e)
+            {
+                return StatusCode(400, new { Message = "Ocurrió un error al borrar proveedor", Details = e.Message });
             }
             catch (ComercialException ex)
             {

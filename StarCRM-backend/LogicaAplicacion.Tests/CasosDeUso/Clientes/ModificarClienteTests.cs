@@ -15,12 +15,13 @@ namespace LogicaAplicacion.Tests.CasosDeUso.Clientes
     public class ModificarClienteTests
     {
         private readonly Mock<IRepositorioComercial> _mockRepo;
+        private readonly Mock<IRepositorio<Actividad>> _mockRepoActividad;
         private readonly ModificarCliente _modificarCliente;
 
         public ModificarClienteTests()
         {
             _mockRepo = new Mock<IRepositorioComercial>();
-            _modificarCliente = new ModificarCliente(_mockRepo.Object);
+            _modificarCliente = new ModificarCliente(_mockRepo.Object, _mockRepoActividad.Object);
         }
 
         [Fact]

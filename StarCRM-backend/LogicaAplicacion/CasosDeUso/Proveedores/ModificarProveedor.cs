@@ -15,9 +15,11 @@ namespace LogicaAplicacion.CasosDeUso.Proveedor
     public class ModificarProveedor : IModificarProveedor
     {
         public IRepositorioComercial RepoComercial { get; set; }
-        public ModificarProveedor(IRepositorioComercial repoComercial)
+        public IRepositorio<Actividad> RepoActividad { get; set; }
+        public ModificarProveedor(IRepositorioComercial repoComercial, IRepositorio<Actividad> repoActividad)
         {
             RepoComercial = repoComercial;
+            RepoActividad = repoActividad;
         }
 
         public DTOProveedor Modificar(int id, DTOProveedor dTOProveedor)
@@ -27,6 +29,13 @@ namespace LogicaAplicacion.CasosDeUso.Proveedor
 
             if (proveedorBuscado == null)
                 throw new ProveedorException($"No se encontró Proveedor con el id: {id}");
+
+            Actividad nuevaActividad = new Actividad()
+            {
+                fecha = DateTime.UtcNow,
+                descripcion = $"Se modificó el proveedor: {dTOProveedor.usuario_id}",
+                usuario_id = dTOProveedor.usuario_id
+            };
 
             try
             {
@@ -43,6 +52,8 @@ namespace LogicaAplicacion.CasosDeUso.Proveedor
 
                 RepoComercial.Update(id, proveedorBuscado);
                 dTOProveedor.Id = id;
+
+                RepoActividad.Add(nuevaActividad);
 
                 return dTOProveedor;
             }
