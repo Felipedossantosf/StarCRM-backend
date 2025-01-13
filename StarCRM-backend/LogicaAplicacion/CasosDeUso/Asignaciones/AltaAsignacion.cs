@@ -26,10 +26,7 @@ namespace LogicaAplicacion.CasosDeUso.Asignaciones
             if (dtoAsignacion == null)
                 throw new ArgumentNullException(nameof(dtoAsignacion), "El DTO Asignacion no puede ser nulo.");
 
-            var clienteBuscado = RepoComercial.FindByCondition(c => c.id == dtoAsignacion.cliente_id && c.TipoComercial.ToLower() == "cliente")
-                                        .FirstOrDefault();
-
-            Cliente cliente = clienteBuscado as Cliente;
+            Cliente cliente = RepoComercial.FindById(dtoAsignacion.cliente_id) as Cliente;
 
             if (cliente == null)
             {
@@ -44,12 +41,19 @@ namespace LogicaAplicacion.CasosDeUso.Asignaciones
                 comun_id = dtoAsignacion.comun_id,
                 fecha = dtoAsignacion.fecha,
                 descripcion = dtoAsignacion.descripcion,
-                estado = "pendiente"
+                estado = dtoAsignacion.estado
             };
 
             try
-            {
+            {                
+
                 RepoAsignacion.Add(nuevaAsignacion);
+
+                if (dtoAsignacion.estado.ToLower() == "aprobada")
+                {
+                    cliente.estado = "Asignado";
+                }
+                RepoComercial.Update(dtoAsignacion.cliente_id, cliente);
 
                 dtoAsignacion.id = nuevaAsignacion.id;
                 return dtoAsignacion;

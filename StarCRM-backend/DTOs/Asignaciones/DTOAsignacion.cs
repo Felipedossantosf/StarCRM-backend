@@ -14,6 +14,6 @@ namespace DTOs.Asignaciones
         public int comun_id { get; set; }
         public DateTime fecha { get; set; }
         public string descripcion { get; set; }
-        //public string? estado { get; set; }
+        public string? estado { get; set; }
     }
 }
