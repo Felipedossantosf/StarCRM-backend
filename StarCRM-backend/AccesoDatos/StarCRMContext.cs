@@ -17,7 +17,9 @@ namespace AccesoDatos
         public DbSet<NotificacionUsuario> NotificacionesUsuario { get; set; }
         public DbSet<Asignacion> Asignaciones { get; set; }
         public DbSet<Actividad> Actividades { get; set; }
-
+        public DbSet<Evento> Eventos { get; set; }
+        public DbSet<EventoComercial> EventoComerciales { get; set; }
+        public DbSet<EventoUsuario> EventoUsuarios { get; set; }
         public StarCRMContext(DbContextOptions<StarCRMContext> options) : base(options) { }
         public StarCRMContext() { }
 
@@ -108,6 +110,28 @@ namespace AccesoDatos
             // Actividades
             modelBuilder.Entity<Actividad>()
                 .ToTable("Actividad");
+
+            // Eventos
+            modelBuilder.Entity<Evento>()
+                .ToTable("Evento");
+
+            modelBuilder.Entity<EventoUsuario>()
+                .HasOne(eu => eu.evento)
+                .WithMany()
+                .HasForeignKey(eu => eu.evento_id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<EventoComercial>()
+                .HasOne(ec => ec.evento)
+                .WithMany()
+                .HasForeignKey(ec => ec.evento_id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<EventoComercial>()
+                .HasKey(ec => new { ec.evento_id, ec.comercial_id });
+
+            modelBuilder.Entity<EventoUsuario>()
+                .HasKey(eu => new { eu.evento_id, eu.usuario_id });
 
             base.OnModelCreating(modelBuilder);
         }

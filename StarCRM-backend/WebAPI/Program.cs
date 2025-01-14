@@ -5,12 +5,14 @@ using AccesoDatos.Repositorios;
 using LogicaAplicacion.CasosDeUso.Actividades;
 using LogicaAplicacion.CasosDeUso.Asignaciones;
 using LogicaAplicacion.CasosDeUso.Clientes;
+using LogicaAplicacion.CasosDeUso.Eventos;
 using LogicaAplicacion.CasosDeUso.NotificacionesUsuario;
 using LogicaAplicacion.CasosDeUso.Proveedor;
 using LogicaAplicacion.CasosDeUso.Usuarios;
 using LogicaAplicacion.Interfaces.Actividades;
 using LogicaAplicacion.Interfaces.Asignaciones;
 using LogicaAplicacion.Interfaces.Clientes;
+using LogicaAplicacion.Interfaces.Eventos;
 using LogicaAplicacion.Interfaces.Notificaciones;
 using LogicaAplicacion.Interfaces.NotificacionesUsuario;
 using LogicaAplicacion.Interfaces.Proveedor;
@@ -76,6 +78,9 @@ namespace WebAPI
             builder.Services.AddScoped<IRepositorioNotificacionUsuario, RepositorioNotificacionUsuario>();
             builder.Services.AddScoped<IRepositorio<Asignacion>, RepositorioAsignacion>();
             builder.Services.AddScoped<IRepositorio<Actividad>, RepositorioActividad>();
+            builder.Services.AddScoped<IRepositorio<Evento>, RepositorioEvento>();
+            builder.Services.AddScoped<IRepositorioEventoComercial, RepositorioEventoComercial>();
+            builder.Services.AddScoped<IRepositorioEventoUsuario, RepositorioEventoUsuario>();
 
             // CASOS DE USO
 
@@ -116,6 +121,8 @@ namespace WebAPI
             builder.Services.AddScoped<IObtenerActividad, ObtenerActividad>();
             builder.Services.AddScoped<IObtenerActividades, ObtenerActividades>();
 
+            // Eventos
+            builder.Services.AddScoped<IAltaEvento, AltaEvento>();
 
             builder.Services.AddCors(options =>
             {
