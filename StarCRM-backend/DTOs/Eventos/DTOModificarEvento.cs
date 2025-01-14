@@ -13,5 +13,7 @@ namespace DTOs.Eventos
         public string nombre { get; set; }
         public string descripcion { get; set; }
         public bool esCarga { get; set; }
+        public IEnumerable<int> usuariosId { get; set; }
+        public IEnumerable<int> comercialesId { get; set; }
     }
 }

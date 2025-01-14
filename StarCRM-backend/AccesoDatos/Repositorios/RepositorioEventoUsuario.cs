@@ -1,5 +1,6 @@
 ﻿using AccesoDatos.Interfaces;
 using LogicaNegocio.Entidades;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,6 +47,19 @@ namespace AccesoDatos.Repositorios
             }
         }
 
+        public void EliminarPorEvento(int eventoId)
+        {
+            try
+            {
+                var relaciones = _db.Set<EventoUsuario>().Where(eu => eu.evento_id == eventoId);
+                _db.Set<EventoUsuario>().RemoveRange(relaciones);
+                _db.SaveChanges();
+            }catch(Exception e)
+            {
+                throw new Exception(e.Message);
+            }            
+        }
+
         public IEnumerable<EventoUsuario> FindAll()
         {
             throw new NotImplementedException();
@@ -88,5 +102,6 @@ namespace AccesoDatos.Repositorios
         {
             throw new NotImplementedException();
         }
+
     }
 }

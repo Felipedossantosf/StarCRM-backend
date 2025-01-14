@@ -11,5 +11,6 @@ namespace AccesoDatos.Interfaces
     {
         void CrearEventoUsuarios(IEnumerable<EventoUsuario> eventoUsuarios);
         IEnumerable<int> GetUsuarioDeEvento(int eventoId);
+        void EliminarPorEvento(int eventoId);
     }
 }
