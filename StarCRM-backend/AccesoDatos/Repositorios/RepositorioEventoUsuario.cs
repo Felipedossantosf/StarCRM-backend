@@ -56,6 +56,19 @@ namespace AccesoDatos.Repositorios
             throw new NotImplementedException();
         }
 
+        public IEnumerable<int> GetUsuarioDeEvento(int eventoId)
+        {
+            try
+            {
+                return _db.EventoUsuarios
+                            .Where(eu => eu.evento_id == eventoId)
+                            .Select(eu => eu.usuario_id);   
+            }catch(Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
         public void Remove(EventoUsuario obj)
         {
             throw new NotImplementedException();

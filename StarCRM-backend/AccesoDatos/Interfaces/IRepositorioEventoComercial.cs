@@ -10,5 +10,6 @@ namespace AccesoDatos.Interfaces
     public interface IRepositorioEventoComercial: IRepositorio<EventoComercial>
     {
         void CrearEventoComerciales(IEnumerable<EventoComercial> events);
+        IEnumerable<int> GetComercialesDeEvento(int eventoId);
     }
 }

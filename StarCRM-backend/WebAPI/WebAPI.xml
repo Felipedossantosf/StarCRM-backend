@@ -76,6 +76,12 @@
             </summary>
             <returns></returns> 
         </member>
+        <member name="M:WebAPI.Controllers.EventoController.Get(System.Int32)">
+            <summary>
+            Servicio que permite obtener un evento por su id
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:WebAPI.Controllers.EventoController.Post(DTOs.Eventos.DTOCrearEvento)">
             <summary>
             Servicio que permite crear un evento con diferentes usuarios y comerciales vinculados

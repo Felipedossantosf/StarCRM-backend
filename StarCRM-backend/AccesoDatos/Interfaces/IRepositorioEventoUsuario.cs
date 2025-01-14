@@ -10,5 +10,6 @@ namespace AccesoDatos.Interfaces
     public interface IRepositorioEventoUsuario: IRepositorio<EventoUsuario>
     {
         void CrearEventoUsuarios(IEnumerable<EventoUsuario> eventoUsuarios);
+        IEnumerable<int> GetUsuarioDeEvento(int eventoId);
     }
 }

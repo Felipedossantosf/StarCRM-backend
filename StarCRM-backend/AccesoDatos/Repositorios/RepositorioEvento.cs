@@ -43,7 +43,16 @@ namespace AccesoDatos.Repositorios
 
         public Evento FindById(int? id)
         {
-            throw new NotImplementedException();
+            if (id == null)
+                throw new ArgumentNullException("Id evento no puede ser nulo.");
+            try
+            {
+                return _db.Eventos.SingleOrDefault(e => e.id == id);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         public void Remove(Evento obj)

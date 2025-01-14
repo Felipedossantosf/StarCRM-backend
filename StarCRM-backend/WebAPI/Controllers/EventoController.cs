@@ -12,10 +12,12 @@ namespace WebAPI.Controllers
     public class EventoController : ControllerBase
     {
         public IAltaEvento AltaEvento { get; set; }
-
-        public EventoController(IAltaEvento altaEvento)
+        public IObtenerEvento ObtenerEvento { get; set; }
+        public EventoController(IAltaEvento altaEvento,
+            IObtenerEvento obtenerEvento)
         {
             AltaEvento = altaEvento;
+            ObtenerEvento = obtenerEvento;
         }
 
 
@@ -26,11 +28,36 @@ namespace WebAPI.Controllers
             return new string[] { "value1", "value2" };
         }
 
+        /// <summary>
+        /// Servicio que permite obtener un evento por su id
+        /// </summary>
+        /// <returns></returns>
         // GET api/<EventoController>/5
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IActionResult Get(int id)
         {
-            return "value";
+            if(id < 1)
+                return StatusCode(400, new { Message = "Id ingresado inválido." });
+
+            try
+            {
+                DTOListarEvento dtoEvento = ObtenerEvento.ObtenerPorId(id);
+                if(dtoEvento.id == 0)
+                    return StatusCode(404, new { Message = "Evento no encontrado." });
+
+                return Ok(dtoEvento);
+            }catch(ArgumentNullException e)
+            {
+                return StatusCode(400, new { Message = "Ocurrió un error al buscar el evento", Details = e.Message });
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, new { Message = "Ocurrió un error al buscar el evento", Details = e.Message });
+            }
         }
 
         /// <summary>
