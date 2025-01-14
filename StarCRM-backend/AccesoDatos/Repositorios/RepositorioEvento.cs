@@ -72,7 +72,24 @@ namespace AccesoDatos.Repositorios
 
         public void Update(int id, Evento obj)
         {
-            throw new NotImplementedException();
+            if (obj == null) throw new ArgumentNullException("Objeto recibido por parámetro nulo.");
+
+            var evento = _db.Eventos.FirstOrDefault(e => e.id == id);
+            if (evento == null)
+                throw new EventoException($"No se encontró evento con el id: {id}");
+
+            try
+            {
+                evento.fecha = obj.fecha;
+                evento.nombre = obj.nombre;
+                evento.descripcion = obj.descripcion;
+                evento.esCarga = obj.esCarga;
+
+                _db.SaveChanges();
+            }catch(Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
     }
 }

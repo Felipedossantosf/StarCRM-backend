@@ -1,4 +1,6 @@
-﻿using DTOs.Eventos;
+﻿using DTOs.Asignaciones;
+using DTOs.Eventos;
+using LogicaAplicacion.CasosDeUso.Asignaciones;
 using LogicaAplicacion.Interfaces.Eventos;
 using LogicaNegocio.Excepciones;
 using Microsoft.AspNetCore.Mvc;
@@ -14,14 +16,16 @@ namespace WebAPI.Controllers
         public IAltaEvento AltaEvento { get; set; }
         public IObtenerEvento ObtenerEvento { get; set; }
         public IObtenerEventos ObtenerEventos { get; set; }
-
+        public IModificarEvento ModificarEvento { get; set; }
         public EventoController(IAltaEvento altaEvento,
             IObtenerEvento obtenerEvento,
-            IObtenerEventos obtenerEventos)
+            IObtenerEventos obtenerEventos,
+            IModificarEvento modificarEvento)
         {
             AltaEvento = altaEvento;
             ObtenerEvento = obtenerEvento;
             ObtenerEventos = obtenerEventos;
+            ModificarEvento = modificarEvento;
         }
 
 
@@ -114,10 +118,42 @@ namespace WebAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Servicio que permite actualizar un evento
+        /// </summary>
+        /// <returns></returns>
         // PUT api/<EventoController>/5
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put(int id, [FromBody] DTOModificarEvento dtoEvento)
         {
+            if (dtoEvento == null)
+                return StatusCode(400, new { Message = "Evento ingresado nula." });
+
+            try
+            {
+                dtoEvento = ModificarEvento.Modificar(id, dtoEvento);
+                return Ok(new { message = "Evento modificado correctamente.", evento = dtoEvento });
+            }
+            catch (ArgumentNullException e)
+            {
+                return StatusCode(400, new { Message = "Request inválida, revisar parametros.", Details = e.Message });
+            }
+            catch (AsignacionException e)
+            {
+                return StatusCode(400, new { Message = "Request inválida, revisar parametros.", Details = e.Message });
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, new
+                {
+                    message = "Ocurrió un error al modificar el evento.",
+                    details = e.InnerException?.Message ?? e.Message
+                });
+            }
         }
 
         // DELETE api/<EventoController>/5

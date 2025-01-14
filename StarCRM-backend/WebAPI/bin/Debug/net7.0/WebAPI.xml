@@ -94,6 +94,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:WebAPI.Controllers.EventoController.Put(System.Int32,DTOs.Eventos.DTOModificarEvento)">
+            <summary>
+            Servicio que permite actualizar un evento
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:WebAPI.Controllers.NotificacionController.ObtenerNotificaciones(System.Int32)">
             <summary>
             Servicio que permite obtener listado de notificaciones de un usuario
