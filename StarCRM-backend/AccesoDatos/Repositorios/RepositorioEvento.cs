@@ -38,7 +38,7 @@ namespace AccesoDatos.Repositorios
 
         public IEnumerable<Evento> FindAll()
         {
-            throw new NotImplementedException();
+            return _db.Eventos.ToList();
         }
 
         public Evento FindById(int? id)
