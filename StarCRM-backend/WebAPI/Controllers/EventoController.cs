@@ -13,19 +13,42 @@ namespace WebAPI.Controllers
     {
         public IAltaEvento AltaEvento { get; set; }
         public IObtenerEvento ObtenerEvento { get; set; }
+        public IObtenerEventos ObtenerEventos { get; set; }
+
         public EventoController(IAltaEvento altaEvento,
-            IObtenerEvento obtenerEvento)
+            IObtenerEvento obtenerEvento,
+            IObtenerEventos obtenerEventos)
         {
             AltaEvento = altaEvento;
             ObtenerEvento = obtenerEvento;
+            ObtenerEventos = obtenerEventos;
         }
 
 
+        /// <summary>
+        /// Servicio que permite obtener listado de todos los eventos
+        /// </summary>
+        /// <returns></returns>
         // GET: api/<EventoController>
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                IEnumerable<DTOListarEvento> dtoEventos = ObtenerEventos.GetEventos();
+                return Ok(dtoEventos);
+            }
+            catch (KeyNotFoundException e)
+            {
+                return StatusCode(404, new { Message = "404 Not Found", Details = e.Message });
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, new { Message = "Ocurrió un error al listar eventos", Details = e.Message });
+            }
         }
 
         /// <summary>

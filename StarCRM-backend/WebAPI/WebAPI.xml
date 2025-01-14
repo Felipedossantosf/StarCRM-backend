@@ -76,6 +76,12 @@
             </summary>
             <returns></returns> 
         </member>
+        <member name="M:WebAPI.Controllers.EventoController.Get">
+            <summary>
+            Servicio que permite obtener listado de todos los eventos
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:WebAPI.Controllers.EventoController.Get(System.Int32)">
             <summary>
             Servicio que permite obtener un evento por su id
