@@ -54,6 +54,19 @@ namespace AccesoDatos.Repositorios
             throw new NotImplementedException();
         }
 
+        public IEnumerable<int> GetComercialesDeEvento(int eventoId)
+        {
+            try
+            {
+                return _db.EventoComerciales
+                            .Where(ec => ec.evento_id == eventoId)
+                            .Select(ec => ec.comercial_id);
+            }catch(Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
         public void Remove(EventoComercial obj)
         {
             throw new NotImplementedException();

@@ -123,6 +123,7 @@ namespace WebAPI
 
             // Eventos
             builder.Services.AddScoped<IAltaEvento, AltaEvento>();
+            builder.Services.AddScoped<IObtenerEvento, ObtenerEvento>();
 
             builder.Services.AddCors(options =>
             {
