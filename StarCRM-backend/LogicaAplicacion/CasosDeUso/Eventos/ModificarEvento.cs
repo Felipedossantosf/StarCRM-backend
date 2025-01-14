@@ -1,8 +1,10 @@
 ﻿using AccesoDatos.Interfaces;
+using AccesoDatos.Repositorios;
 using DTOs.Eventos;
 using LogicaAplicacion.Interfaces.Eventos;
 using LogicaNegocio.Entidades;
 using LogicaNegocio.Excepciones;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,15 +16,20 @@ namespace LogicaAplicacion.CasosDeUso.Eventos
     public class ModificarEvento : IModificarEvento
     {
         public IRepositorio<Evento> RepoEvento { get; set; }
-        public ModificarEvento(IRepositorio<Evento> repoEvento)
+        public IRepositorioEventoUsuario RepoEventoUsuario { get; set; }
+        public IRepositorioEventoComercial RepoEventoComercial { get; set; }
+        public ModificarEvento(IRepositorio<Evento> repoEvento, IRepositorioEventoUsuario repoEventoUsuario, IRepositorioEventoComercial repositorioEventoComercial)
         {
             RepoEvento = repoEvento;
+            RepoEventoUsuario = repoEventoUsuario;
+            RepoEventoComercial = repositorioEventoComercial;
         }
         public DTOModificarEvento Modificar(int id, DTOModificarEvento dtoEvento)
         {
             Evento eventoBuscado = RepoEvento.FindById(id);
             if (eventoBuscado == null)
                 throw new EventoException($"No se encontró el evento con el id: {id}");
+            
 
             try
             {
@@ -30,9 +37,17 @@ namespace LogicaAplicacion.CasosDeUso.Eventos
                 eventoBuscado.nombre = dtoEvento.nombre;
                 eventoBuscado.descripcion = dtoEvento.descripcion;
                 eventoBuscado.esCarga = dtoEvento.esCarga;
+                
 
                 RepoEvento.Update(id, eventoBuscado);
+                
                 dtoEvento.id = id;
+
+                // Actualizar las relaciones con usuarios
+                ActualizarUsuarios(id, dtoEvento.usuariosId);
+
+                // Actualizar las relaciones con comerciales
+                ActualizarComerciales(id, dtoEvento.comercialesId);
 
                 return dtoEvento;
             }catch(ArgumentNullException e)
@@ -46,6 +61,38 @@ namespace LogicaAplicacion.CasosDeUso.Eventos
             catch (Exception e)
             {
                 throw new Exception(e.Message);
+            }
+        }
+
+        private void ActualizarUsuarios(int eventoId, IEnumerable<int> nuevosUsuariosId)
+        {
+            // Eliminar las relaciones existentes
+            RepoEventoUsuario.EliminarPorEvento(eventoId);
+
+            // Insertar las nuevas relaciones
+            foreach (var usuarioId in nuevosUsuariosId)
+            {
+                RepoEventoUsuario.Add(new EventoUsuario
+                {
+                    evento_id = eventoId,
+                    usuario_id = usuarioId
+                });
+            }
+        }
+
+        private void ActualizarComerciales(int eventoId, IEnumerable<int> nuevosComercialesId)
+        {
+            // Eliminar las relaciones existentes
+            RepoEventoComercial.EliminarPorEvento(eventoId);
+
+            // Insertar las nuevas relaciones
+            foreach (var comercialId in nuevosComercialesId)
+            {
+                RepoEventoComercial.Add(new EventoComercial
+                {
+                    evento_id = eventoId,
+                    comercial_id = comercialId
+                });
             }
         }
     }

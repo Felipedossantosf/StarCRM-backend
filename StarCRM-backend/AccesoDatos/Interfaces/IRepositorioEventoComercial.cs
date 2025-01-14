@@ -11,5 +11,6 @@ namespace AccesoDatos.Interfaces
     {
         void CrearEventoComerciales(IEnumerable<EventoComercial> events);
         IEnumerable<int> GetComercialesDeEvento(int eventoId);
+        void EliminarPorEvento(int eventoId);
     }
 }
