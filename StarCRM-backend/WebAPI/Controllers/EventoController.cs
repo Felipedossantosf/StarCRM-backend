@@ -1,6 +1,7 @@
 ﻿using DTOs.Asignaciones;
 using DTOs.Eventos;
 using LogicaAplicacion.CasosDeUso.Asignaciones;
+using LogicaAplicacion.CasosDeUso.Eventos;
 using LogicaAplicacion.Interfaces.Eventos;
 using LogicaNegocio.Excepciones;
 using Microsoft.AspNetCore.Mvc;
@@ -17,15 +18,18 @@ namespace WebAPI.Controllers
         public IObtenerEvento ObtenerEvento { get; set; }
         public IObtenerEventos ObtenerEventos { get; set; }
         public IModificarEvento ModificarEvento { get; set; }
+        public IEliminarEvento EliminarEvento { get; set; }
         public EventoController(IAltaEvento altaEvento,
             IObtenerEvento obtenerEvento,
             IObtenerEventos obtenerEventos,
-            IModificarEvento modificarEvento)
+            IModificarEvento modificarEvento,
+            IEliminarEvento eliminarEvento)
         {
             AltaEvento = altaEvento;
             ObtenerEvento = obtenerEvento;
             ObtenerEventos = obtenerEventos;
             ModificarEvento = modificarEvento;
+            EliminarEvento = eliminarEvento;
         }
 
 
@@ -156,10 +160,38 @@ namespace WebAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Servicio que permite eliminar un evento
+        /// </summary>
+        /// <returns></returns>
         // DELETE api/<EventoController>/5
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            if (id <= 0)
+                return StatusCode(400, new { Message = "Evento id ingresado menor o igual a 0." });
+
+            try
+            {
+                EliminarEvento.Eliminar(id);
+                Response.Headers.Add("X-Message", "Evento eliminado satisfactoriamente");
+                return NoContent();
+            }
+            catch (ArgumentNullException e)
+            {
+                return StatusCode(400, new { Message = "Request inválida, revisar parametros.", Details = e.Message });
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, new
+                {
+                    message = "Ocurrió un error al intentar eliminar el evento.",
+                    details = e.InnerException?.Message ?? e.Message
+                });
+            }
         }
     }
 }
