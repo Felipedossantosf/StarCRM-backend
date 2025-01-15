@@ -62,7 +62,27 @@ namespace AccesoDatos.Repositorios
 
         public void Remove(int? id)
         {
-            throw new NotImplementedException();
+            if (id <= 0)
+                throw new ArgumentNullException("El id recibido por parámetro no es válido.");
+
+            try
+            {
+                var evento = FindById(id);
+                if (evento == null)
+                    throw new KeyNotFoundException($"No se encontró evento con el id: {id}");
+
+                _db.Eventos.Remove(evento);
+                _db.SaveChanges();
+            }
+            catch(ArgumentNullException e)
+            {
+                throw new ArgumentNullException(e.Message);
+            }
+            catch(Exception e)
+            {
+                //throw new Exception(e.Message);
+                throw new Exception($"Error al eliminar en la base de datos en RepositorioEvento: {e.InnerException?.Message ?? e.Message}", e);
+            }
         }
 
         public void Update(Evento obj)

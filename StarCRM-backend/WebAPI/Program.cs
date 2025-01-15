@@ -126,6 +126,7 @@ namespace WebAPI
             builder.Services.AddScoped<IObtenerEvento, ObtenerEvento>();
             builder.Services.AddScoped<IObtenerEventos, ObtenerEventos>();
             builder.Services.AddScoped<IModificarEvento, ModificarEvento>();
+            builder.Services.AddScoped<IEliminarEvento, EliminarEvento>();
 
             builder.Services.AddCors(options =>
             {
