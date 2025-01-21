@@ -34,7 +34,7 @@ namespace AccesoDatos.Repositorios
             }
             catch(Exception e)
             {
-                throw new Exception(e.Message);
+                throw new Exception($"Error en RepositorioCotizacion: {e.InnerException?.Message ?? e.Message}");
             }
         }
 

@@ -76,6 +76,18 @@
             </summary>
             <returns></returns> 
         </member>
+        <member name="M:WebAPI.Controllers.CotizacionController.Get(System.Int32)">
+            <summary>
+            Servicio que permite obtener una cotización por su id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI.Controllers.CotizacionController.Post(DTOs.Cotizacion.DTOListarCotizacion)">
+            <summary>
+            Servicio que permite crear una cotización
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:WebAPI.Controllers.EventoController.Get">
             <summary>
             Servicio que permite obtener listado de todos los eventos

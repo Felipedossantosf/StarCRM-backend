@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogicaNegocio.Entidades
+namespace DTOs.Cotizacion
 {
-    [Table("LineaCotizacion")]
-    public class LineaCotizacion
+    public class DTOLineaCotizacion
     {
         public int id { get; set; }
-        public int cotizacion_id { get; set; }
-        public Cotizacion cotizacion { get; set; } // configurar en contexto
+        public int cotizacion_id { get; set; }        
         public int cant { get; set; }
         public decimal precioUnit { get; set; }
         public decimal totalLinea { get; set; }

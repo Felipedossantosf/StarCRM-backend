@@ -34,6 +34,21 @@ namespace AccesoDatos.Repositorios
             }
         }
 
+        public void CrearLineasDeCotizacion(IEnumerable<LineaCotizacion> lineas)
+        {
+            if (lineas == null)
+                throw new ArgumentNullException("Lineas recibidas por parametros = null");
+
+            try
+            {
+                _db.LineasCotizacion.AddRange(lineas);
+                _db.SaveChanges();  
+            }catch(Exception e)
+            {
+                throw new Exception($"Error en RepositorioLineaCotizacion: {e.InnerException?.Message ?? e.Message}");
+            }
+        }
+
         public IEnumerable<LineaCotizacion> FindAll()
         {
             return _db.LineasCotizacion.ToList();

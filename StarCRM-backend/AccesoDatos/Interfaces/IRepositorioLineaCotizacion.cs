@@ -10,5 +10,6 @@ namespace AccesoDatos.Interfaces
     public interface IRepositorioLineaCotizacion: IRepositorio<LineaCotizacion>
     {
         IEnumerable<LineaCotizacion> GetLineasDeCotizacion(int cotizacion_id);
+        void CrearLineasDeCotizacion(IEnumerable<LineaCotizacion> lineas);
     }
 }
