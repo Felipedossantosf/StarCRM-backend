@@ -76,6 +76,12 @@
             </summary>
             <returns></returns> 
         </member>
+        <member name="M:WebAPI.Controllers.CotizacionController.Get">
+            <summary>
+            Servicio que permite obtener listado de todas las cotizaciones
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:WebAPI.Controllers.CotizacionController.Get(System.Int32)">
             <summary>
             Servicio que permite obtener una cotización por su id

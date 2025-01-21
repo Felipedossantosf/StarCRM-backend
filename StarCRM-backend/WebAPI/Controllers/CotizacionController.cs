@@ -15,20 +15,42 @@ namespace WebAPI.Controllers
     {
         public IGetCotizacion GetCotizacion { get; set; }   
         public IAltaCotizacion AltaCotizacion { get; set; }
+        public IObtenerCotizaciones ObtenerCotizaciones { get; set; }
         public CotizacionController(
             IGetCotizacion getCotizacion,
-            IAltaCotizacion altaCotizacion)
+            IAltaCotizacion altaCotizacion,
+            IObtenerCotizaciones obtenerCotizaciones)
         {
             GetCotizacion = getCotizacion;
             AltaCotizacion = altaCotizacion;
+            ObtenerCotizaciones = obtenerCotizaciones;
         }
 
 
-        // GET: api/<CotizacionController>
+        /// <summary>
+        /// Servicio que permite obtener listado de todas las cotizaciones
+        /// </summary>
+        /// <returns></returns>
+        // GET: api/<EventoController>
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                IEnumerable<DTOListarCotizacion> dtoCotizaciones = ObtenerCotizaciones.GetAllCotizaciones();
+                return Ok(dtoCotizaciones);
+            }
+            catch (KeyNotFoundException e)
+            {
+                return StatusCode(404, new { Message = "404 Not Found", Details = e.Message });
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, new { Message = "Ocurrió un error al listar cotizaciones", Details = e.Message });
+            }
         }
 
         /// <summary>

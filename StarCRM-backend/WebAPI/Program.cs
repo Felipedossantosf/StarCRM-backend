@@ -135,6 +135,7 @@ namespace WebAPI
             // Cotizaciones
             builder.Services.AddScoped<IGetCotizacion, GetCotizacion>();
             builder.Services.AddScoped<IAltaCotizacion, AltaCotizacion>();
+            builder.Services.AddScoped<IObtenerCotizaciones, ObtenerCotizaciones>();
 
             builder.Services.AddCors(options =>
             {
