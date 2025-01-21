@@ -137,7 +137,7 @@ namespace WebAPI
             builder.Services.AddScoped<IAltaCotizacion, AltaCotizacion>();
             builder.Services.AddScoped<IObtenerCotizaciones, ObtenerCotizaciones>();
             builder.Services.AddScoped<IEliminarCotizacion, EliminarCotizacion>();
-
+            builder.Services.AddScoped<IModificarCotizacion, ModificarCotizacion>();
 
             builder.Services.AddCors(options =>
             {

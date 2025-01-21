@@ -94,6 +94,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:WebAPI.Controllers.CotizacionController.Put(System.Int32,DTOs.Cotizacion.DTOListarCotizacion)">
+            <summary>
+            Servicio que permite actualizar una cotizacion y sus lineas
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:WebAPI.Controllers.CotizacionController.Delete(System.Int32)">
             <summary>
             Servicio que permite eliminar una cotizacion y sus lineas

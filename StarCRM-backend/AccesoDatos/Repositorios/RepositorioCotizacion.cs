@@ -121,7 +121,7 @@ namespace AccesoDatos.Repositorios
             }
             catch(Exception e)
             {
-                throw new Exception(e.Message);
+                throw new Exception($"Error al modificar cotización en RepositorioCotizacion: {e.InnerException?.Message ?? e.Message}");
             }
         }
     }

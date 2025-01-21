@@ -17,16 +17,19 @@ namespace WebAPI.Controllers
         public IAltaCotizacion AltaCotizacion { get; set; }
         public IObtenerCotizaciones ObtenerCotizaciones { get; set; }
         public IEliminarCotizacion EliminarCotizacion { get; set; }
+        public IModificarCotizacion ModificarCotizacion { get; set; }
         public CotizacionController(
             IGetCotizacion getCotizacion,
             IAltaCotizacion altaCotizacion,
             IObtenerCotizaciones obtenerCotizaciones,
-            IEliminarCotizacion eliminarCotizacion)
+            IEliminarCotizacion eliminarCotizacion,
+            IModificarCotizacion modificarCotizacion)
         {
             GetCotizacion = getCotizacion;
             AltaCotizacion = altaCotizacion;
             ObtenerCotizaciones = obtenerCotizaciones;
             EliminarCotizacion = eliminarCotizacion;
+            ModificarCotizacion = modificarCotizacion;
         }
 
 
@@ -127,10 +130,42 @@ namespace WebAPI.Controllers
             }
         }
 
-        // PUT api/<CotizacionController>/5
+        /// <summary>
+        /// Servicio que permite actualizar una cotizacion y sus lineas
+        /// </summary>
+        /// <returns></returns>
+        // PUT api/<EventoController>/5
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put(int id, [FromBody] DTOListarCotizacion dtoCotizacion)
         {
+            if (dtoCotizacion == null)
+                return StatusCode(400, new { Message = "Cotización ingresada nula." });
+
+            try
+            {
+                dtoCotizacion = ModificarCotizacion.Modificar(id, dtoCotizacion);
+                return Ok(new { message = "Cotización modificada correctamente.", cotizacion = dtoCotizacion });
+            }
+            catch (ArgumentNullException e)
+            {
+                return StatusCode(400, new { Message = "Request inválida, revisar parametros.", Details = e.Message });
+            }
+            catch (KeyNotFoundException e)
+            {
+                return StatusCode(404, new { Message = "Request inválida, revisar parametros.", Details = e.Message });
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, new
+                {
+                    message = "Ocurrió un error al modificar la cotización.",
+                    details = e.InnerException?.Message ?? e.Message
+                });
+            }
         }
 
         /// <summary>
