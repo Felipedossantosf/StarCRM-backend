@@ -11,5 +11,6 @@ namespace AccesoDatos.Interfaces
     {
         IEnumerable<LineaCotizacion> GetLineasDeCotizacion(int cotizacion_id);
         void CrearLineasDeCotizacion(IEnumerable<LineaCotizacion> lineas);
+        void EliminarLineasDeCotizacion(int cotizacion_id);
     }
 }

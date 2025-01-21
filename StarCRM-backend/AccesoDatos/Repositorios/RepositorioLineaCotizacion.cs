@@ -49,6 +49,19 @@ namespace AccesoDatos.Repositorios
             }
         }
 
+        public void EliminarLineasDeCotizacion(int cotizacion_id)
+        {
+            try
+            {
+                IEnumerable<LineaCotizacion> lineas = _db.LineasCotizacion.Where(l => l.cotizacion_id == cotizacion_id).ToList();
+                _db.LineasCotizacion.RemoveRange(lineas);
+            }
+            catch(Exception e)
+            {
+                throw new Exception ($"Error al eliminar lineas en RepositorioLineaCotizacion: {e.InnerException?.Message ?? e.Message}");
+            }
+        }
+
         public IEnumerable<LineaCotizacion> FindAll()
         {
             return _db.LineasCotizacion.ToList();
@@ -77,7 +90,7 @@ namespace AccesoDatos.Repositorios
 
         public void Remove(LineaCotizacion obj)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException();            
         }
 
         public void Remove(int? id)

@@ -16,14 +16,17 @@ namespace WebAPI.Controllers
         public IGetCotizacion GetCotizacion { get; set; }   
         public IAltaCotizacion AltaCotizacion { get; set; }
         public IObtenerCotizaciones ObtenerCotizaciones { get; set; }
+        public IEliminarCotizacion EliminarCotizacion { get; set; }
         public CotizacionController(
             IGetCotizacion getCotizacion,
             IAltaCotizacion altaCotizacion,
-            IObtenerCotizaciones obtenerCotizaciones)
+            IObtenerCotizaciones obtenerCotizaciones,
+            IEliminarCotizacion eliminarCotizacion)
         {
             GetCotizacion = getCotizacion;
             AltaCotizacion = altaCotizacion;
             ObtenerCotizaciones = obtenerCotizaciones;
+            EliminarCotizacion = eliminarCotizacion;
         }
 
 
@@ -130,10 +133,38 @@ namespace WebAPI.Controllers
         {
         }
 
-        // DELETE api/<CotizacionController>/5
+        /// <summary>
+        /// Servicio que permite eliminar una cotizacion y sus lineas
+        /// </summary>
+        /// <returns></returns>
+        // DELETE api/<EventoController>/5
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            if (id <= 0)
+                return StatusCode(400, new { Message = "Evento id ingresado menor o igual a 0." });
+
+            try
+            {
+                EliminarCotizacion.Eliminar(id);
+                Response.Headers.Add("X-Message", "Cotizacion eliminada satisfactoriamente");
+                return NoContent();
+            }
+            catch (ArgumentNullException e)
+            {
+                return StatusCode(400, new { Message = "Request inválida, revisar parametros.", Details = e.Message });
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, new
+                {
+                    message = "Ocurrió un error al intentar eliminar la cotización.",
+                    details = e.InnerException?.Message ?? e.Message
+                });
+            }
         }
     }
 }
