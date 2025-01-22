@@ -2,6 +2,7 @@
 using DTOs.Cotizacion;
 using LogicaAplicacion.Interfaces.Cotizaciones;
 using LogicaNegocio.Entidades;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,11 +29,9 @@ namespace LogicaAplicacion.CasosDeUso.Cotizaciones
 
             try
             {
-                cotizacionBuscada.estado = dtoCotizacion.estado;
-                cotizacionBuscada.motivos = dtoCotizacion.motivos;
+                cotizacionBuscada.estado = dtoCotizacion.estado;                
                 cotizacionBuscada.fecha = dtoCotizacion.fecha;
-                cotizacionBuscada.metodosPago = dtoCotizacion.metodosPago;
-                cotizacionBuscada.notas = dtoCotizacion.notas;
+                cotizacionBuscada.metodosPago = dtoCotizacion.metodosPago;                
                 cotizacionBuscada.subtotal = dtoCotizacion.subtotal;
                 cotizacionBuscada.porcDesc = dtoCotizacion.porcDesc;
                 cotizacionBuscada.subtotalDesc = dtoCotizacion.subtotalDesc;
@@ -41,7 +40,16 @@ namespace LogicaAplicacion.CasosDeUso.Cotizaciones
                 cotizacionBuscada.cliente_id = dtoCotizacion.cliente_id;
                 cotizacionBuscada.empresa_id = dtoCotizacion.empresa_id;
                 cotizacionBuscada.usuario_id = dtoCotizacion.usuario_id;
-
+                cotizacionBuscada.proveedor_id = dtoCotizacion.proveedor_id;
+                cotizacionBuscada.fechaValidez = dtoCotizacion.fechaValidez;
+                cotizacionBuscada.origen = dtoCotizacion.origen;
+                cotizacionBuscada.destino = dtoCotizacion.destino;
+                cotizacionBuscada.condicionFlete = dtoCotizacion.condicionFlete;
+                cotizacionBuscada.modo = dtoCotizacion.modo;
+                cotizacionBuscada.mercaderia = dtoCotizacion.mercaderia;
+                cotizacionBuscada.peso = dtoCotizacion.peso;
+                cotizacionBuscada.volumen = dtoCotizacion.volumen;
+                cotizacionBuscada.terminosCondiciones = dtoCotizacion.terminosCondiciones;
 
                 RepoCotizacion.Update(id, cotizacionBuscada);
                 dtoCotizacion.id = cotizacionBuscada.id;

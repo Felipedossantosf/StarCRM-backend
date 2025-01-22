@@ -42,11 +42,9 @@ namespace LogicaAplicacion.CasosDeUso.Cotizaciones
                 DTOListarCotizacion dtoCotizacion = new DTOListarCotizacion()
                 {
                     id = cotizacionBuscada.id,
-                    estado = cotizacionBuscada.estado,
-                    motivos = cotizacionBuscada.motivos,
+                    estado = cotizacionBuscada.estado,                    
                     fecha = cotizacionBuscada.fecha,
-                    metodosPago = cotizacionBuscada.metodosPago,
-                    notas = cotizacionBuscada.notas,
+                    metodosPago = cotizacionBuscada.metodosPago,                    
                     subtotal = cotizacionBuscada.subtotal,
                     porcDesc = cotizacionBuscada.porcDesc,
                     subtotalDesc = cotizacionBuscada.subtotalDesc,
@@ -55,7 +53,16 @@ namespace LogicaAplicacion.CasosDeUso.Cotizaciones
                     cliente_id = cotizacionBuscada.cliente_id,
                     usuario_id = cotizacionBuscada.usuario_id,
                     empresa_id = cotizacionBuscada.empresa_id,
-
+                    proveedor_id = cotizacionBuscada.proveedor_id,
+                    fechaValidez = cotizacionBuscada.fechaValidez,
+                    origen = cotizacionBuscada.origen,
+                    destino = cotizacionBuscada.destino,
+                    condicionFlete = cotizacionBuscada.condicionFlete,
+                    modo = cotizacionBuscada.modo,
+                    mercaderia = cotizacionBuscada.mercaderia,
+                    peso = cotizacionBuscada.peso,
+                    volumen = cotizacionBuscada.volumen,
+                    terminosCondiciones = cotizacionBuscada.terminosCondiciones,
                     lineas = dtoLineas
                 };
 

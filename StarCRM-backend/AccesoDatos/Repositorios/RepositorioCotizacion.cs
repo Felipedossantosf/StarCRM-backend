@@ -99,11 +99,9 @@ namespace AccesoDatos.Repositorios
                 if (cotizacion == null)
                     throw new KeyNotFoundException($"No se encontró cotización con el id: {id}");
 
-                cotizacion.estado = obj.estado;
-                cotizacion.motivos = obj.motivos;
+                cotizacion.estado = obj.estado;                
                 cotizacion.fecha = obj.fecha;
-                cotizacion.metodosPago = obj.metodosPago;
-                cotizacion.notas = obj.notas;
+                cotizacion.metodosPago = obj.metodosPago;                
                 cotizacion.subtotal = obj.subtotal;
                 cotizacion.porcDesc = obj.porcDesc;
                 cotizacion.subtotalDesc = obj.subtotalDesc;
@@ -112,6 +110,16 @@ namespace AccesoDatos.Repositorios
                 cotizacion.cliente_id = obj.cliente_id;
                 cotizacion.empresa_id = obj.empresa_id;
                 cotizacion.usuario_id = obj.usuario_id;
+                cotizacion.proveedor_id = obj.proveedor_id;
+                cotizacion.fechaValidez = obj.fechaValidez;
+                cotizacion.origen = obj.origen;
+                cotizacion.destino = obj.destino;
+                cotizacion.condicionFlete = obj.condicionFlete;
+                cotizacion.modo = obj.modo;
+                cotizacion.mercaderia = obj.mercaderia;
+                cotizacion.peso = obj.peso;
+                cotizacion.volumen = obj.volumen;
+                cotizacion.terminosCondiciones = obj.terminosCondiciones;
 
                 _db.SaveChanges();
             }

@@ -31,11 +31,9 @@ namespace LogicaAplicacion.CasosDeUso.Cotizaciones
                 IEnumerable<DTOListarCotizacion> dtoCotizaciones = cotizaciones.Select(c => new DTOListarCotizacion()
                 {
                     id = c.id,
-                    estado = c.estado,
-                    motivos = c.motivos,
+                    estado = c.estado,                    
                     fecha = c.fecha,
-                    metodosPago = c.metodosPago,
-                    notas = c.notas,
+                    metodosPago = c.metodosPago,                    
                     subtotal = c.subtotal,
                     porcDesc = c.porcDesc,
                     subtotalDesc = c.porcDesc,
@@ -44,6 +42,16 @@ namespace LogicaAplicacion.CasosDeUso.Cotizaciones
                     cliente_id = c.cliente_id,
                     empresa_id = c.empresa_id,
                     usuario_id = c.usuario_id,
+                    proveedor_id = c.proveedor_id,
+                    fechaValidez = c.fechaValidez,
+                    origen = c.origen,
+                    destino = c.destino,
+                    condicionFlete = c.condicionFlete,
+                    modo = c.modo,
+                    mercaderia = c.mercaderia,
+                    peso = c.peso,
+                    volumen = c.volumen,
+                    terminosCondiciones = c.terminosCondiciones,
 
                     lineas = lineas.Where(l => l.cotizacion_id == c.id).Select(l => new DTOLineaCotizacion()
                     {

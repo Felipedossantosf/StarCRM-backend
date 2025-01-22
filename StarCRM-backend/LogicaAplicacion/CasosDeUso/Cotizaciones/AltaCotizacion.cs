@@ -29,11 +29,9 @@ namespace LogicaAplicacion.CasosDeUso.Cotizaciones
             {
                 Cotizacion newCotizacion = new Cotizacion()
                 {
-                    estado = dtoCotizacion.estado,
-                    motivos = dtoCotizacion.motivos,
+                    estado = dtoCotizacion.estado,                    
                     fecha = dtoCotizacion.fecha,
-                    metodosPago = dtoCotizacion.metodosPago,
-                    notas = dtoCotizacion.notas,
+                    metodosPago = dtoCotizacion.metodosPago,                    
                     subtotal = dtoCotizacion.subtotal,
                     porcDesc = dtoCotizacion.porcDesc,
                     subtotalDesc = dtoCotizacion.subtotalDesc,
@@ -41,7 +39,17 @@ namespace LogicaAplicacion.CasosDeUso.Cotizaciones
                     total = dtoCotizacion.total,
                     cliente_id = dtoCotizacion.cliente_id,
                     empresa_id = dtoCotizacion.empresa_id,
-                    usuario_id = dtoCotizacion.usuario_id
+                    usuario_id = dtoCotizacion.usuario_id,
+                    proveedor_id = dtoCotizacion.proveedor_id,
+                    fechaValidez = dtoCotizacion.fechaValidez,
+                    origen = dtoCotizacion.origen,
+                    destino = dtoCotizacion.destino,
+                    condicionFlete = dtoCotizacion.condicionFlete,
+                    modo = dtoCotizacion.modo,
+                    mercaderia = dtoCotizacion.mercaderia,
+                    peso = dtoCotizacion.peso,
+                    volumen = dtoCotizacion.volumen,
+                    terminosCondiciones = dtoCotizacion.terminosCondiciones
                 };
 
                 RepoCotizacion.Add(newCotizacion);
