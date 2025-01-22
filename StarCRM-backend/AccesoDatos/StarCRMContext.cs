@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace AccesoDatos
 {
-    public class StarCRMContext: DbContext
+    public class StarCRMContext : DbContext
     {
-        public DbSet<Usuario> Usuarios { get; set; }   
+        public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Comercial> Comerciales { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Notificacion> Notificaciones { get; set; }
@@ -20,6 +20,9 @@ namespace AccesoDatos
         public DbSet<Evento> Eventos { get; set; }
         public DbSet<EventoComercial> EventoComerciales { get; set; }
         public DbSet<EventoUsuario> EventoUsuarios { get; set; }
+        public DbSet<Cotizacion> Cotizaciones { get; set; } 
+        public DbSet<LineaCotizacion> LineasCotizacion { get; set; }
+
         public StarCRMContext(DbContextOptions<StarCRMContext> options) : base(options) { }
         public StarCRMContext() { }
 
@@ -132,6 +135,25 @@ namespace AccesoDatos
 
             modelBuilder.Entity<EventoUsuario>()
                 .HasKey(eu => new { eu.evento_id, eu.usuario_id });
+
+            // Cotizacion
+            modelBuilder.Entity<LineaCotizacion>()
+                .HasOne(lc => lc.cotizacion)
+                .WithMany()
+                .HasForeignKey(lc => lc.cotizacion_id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Cotizacion>()
+                .HasOne<Cliente>() // Configura la relación con Cliente si es necesaria.
+                .WithMany()
+                .HasForeignKey(c => c.cliente_id)
+                .OnDelete(DeleteBehavior.Restrict); // O DeleteBehavior.SetNull
+
+            modelBuilder.Entity<Cotizacion>()
+                .HasOne<Usuario>() // Configura la relación con Cliente si es necesaria.
+                .WithMany()
+                .HasForeignKey(c => c.usuario_id)
+                .OnDelete(DeleteBehavior.Restrict); // O DeleteBehavior.SetNull
 
             base.OnModelCreating(modelBuilder);
         }

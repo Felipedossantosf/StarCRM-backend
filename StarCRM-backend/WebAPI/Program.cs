@@ -5,6 +5,7 @@ using AccesoDatos.Repositorios;
 using LogicaAplicacion.CasosDeUso.Actividades;
 using LogicaAplicacion.CasosDeUso.Asignaciones;
 using LogicaAplicacion.CasosDeUso.Clientes;
+using LogicaAplicacion.CasosDeUso.Cotizaciones;
 using LogicaAplicacion.CasosDeUso.Eventos;
 using LogicaAplicacion.CasosDeUso.NotificacionesUsuario;
 using LogicaAplicacion.CasosDeUso.Proveedor;
@@ -12,6 +13,7 @@ using LogicaAplicacion.CasosDeUso.Usuarios;
 using LogicaAplicacion.Interfaces.Actividades;
 using LogicaAplicacion.Interfaces.Asignaciones;
 using LogicaAplicacion.Interfaces.Clientes;
+using LogicaAplicacion.Interfaces.Cotizaciones;
 using LogicaAplicacion.Interfaces.Eventos;
 using LogicaAplicacion.Interfaces.Notificaciones;
 using LogicaAplicacion.Interfaces.NotificacionesUsuario;
@@ -81,6 +83,8 @@ namespace WebAPI
             builder.Services.AddScoped<IRepositorio<Evento>, RepositorioEvento>();
             builder.Services.AddScoped<IRepositorioEventoComercial, RepositorioEventoComercial>();
             builder.Services.AddScoped<IRepositorioEventoUsuario, RepositorioEventoUsuario>();
+            builder.Services.AddScoped<IRepositorio<Cotizacion>, RepositorioCotizacion>();
+            builder.Services.AddScoped<IRepositorioLineaCotizacion, RepositorioLineaCotizacion>();
 
             // CASOS DE USO
 
@@ -127,6 +131,13 @@ namespace WebAPI
             builder.Services.AddScoped<IObtenerEventos, ObtenerEventos>();
             builder.Services.AddScoped<IModificarEvento, ModificarEvento>();
             builder.Services.AddScoped<IEliminarEvento, EliminarEvento>();
+
+            // Cotizaciones
+            builder.Services.AddScoped<IGetCotizacion, GetCotizacion>();
+            builder.Services.AddScoped<IAltaCotizacion, AltaCotizacion>();
+            builder.Services.AddScoped<IObtenerCotizaciones, ObtenerCotizaciones>();
+            builder.Services.AddScoped<IEliminarCotizacion, EliminarCotizacion>();
+            builder.Services.AddScoped<IModificarCotizacion, ModificarCotizacion>();
 
             builder.Services.AddCors(options =>
             {
