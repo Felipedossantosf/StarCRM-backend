@@ -93,6 +93,19 @@ namespace AccesoDatos.Repositorios
             }
             
         }
+        public IEnumerable<Cliente> GetClientesLibres()
+        {
+            try
+            {
+                return _db.Comerciales.OfType<Cliente>().Where(c => c.estado.ToLower() == "libre").ToList();
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Error al listar clientes perdidos en RepositorioComercial: {e.InnerException?.Message ?? e.Message}");
+            }
+
+        }
+
 
         public void Remove(Comercial obj)
         {

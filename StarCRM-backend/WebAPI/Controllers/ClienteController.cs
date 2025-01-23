@@ -19,6 +19,7 @@ namespace WebAPI.Controllers
         public IEliminarCliente EliminarCliente { get; set; }
         public IModificarCliente ModificarCliente { get; set; }
         public IObtenerClientesPerdidos ObtenerClientesPerdidos { get; set; }
+        public IObtenerClientesLibres ObtenerClientesLibres { get; set; }
 
         public ClienteController(
             IAltaCliente altaCliente,
@@ -26,7 +27,8 @@ namespace WebAPI.Controllers
             IObtenerClientes obtenerClientes,
             IEliminarCliente eliminarCliente,
             IModificarCliente modificarCliente,
-            IObtenerClientesPerdidos obtenerClientesPerdidos
+            IObtenerClientesPerdidos obtenerClientesPerdidos,
+            IObtenerClientesLibres obtenerClientesLibres
         )
         {
             AltaCliente = altaCliente;
@@ -35,6 +37,7 @@ namespace WebAPI.Controllers
             EliminarCliente = eliminarCliente;
             ModificarCliente = modificarCliente;
             ObtenerClientesPerdidos = obtenerClientesPerdidos;
+            ObtenerClientesLibres = obtenerClientesLibres;
         }
 
 
@@ -60,7 +63,7 @@ namespace WebAPI.Controllers
         }
 
         /// <summary>
-        /// Servicio que permite obtener listado de clientes con estado inactivo (perdidos)
+        /// Servicio que permite obtener listado de clientes inactivos (perdidos)
         /// </summary>
         /// <returns></returns>
         // GET: api/<ClienteController>
@@ -80,6 +83,26 @@ namespace WebAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Servicio que permite obtener listado de clientes libres
+        /// </summary>
+        /// <returns></returns>
+        // GET: api/<ClienteController>
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [HttpGet("/Libres")]
+        public IActionResult GetLibres()
+        {
+            try
+            {
+                IEnumerable<DTOCliente> dtoClientes = ObtenerClientesLibres.GetClientesLibres();
+                return Ok(dtoClientes);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = "Ocurrió un error al listar clientes perdidos", Details = ex.Message });
+            }
+        }
 
         /// <summary>
         /// Servicio que permite obtener un cliente por su id
