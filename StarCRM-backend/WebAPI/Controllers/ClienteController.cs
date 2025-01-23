@@ -18,12 +18,15 @@ namespace WebAPI.Controllers
         public IObtenerClientes ObtenerClientes { get; set; }
         public IEliminarCliente EliminarCliente { get; set; }
         public IModificarCliente ModificarCliente { get; set; }
+        public IObtenerClientesPerdidos ObtenerClientesPerdidos { get; set; }
+
         public ClienteController(
             IAltaCliente altaCliente,
             IObtenerCliente obtenerCliente,
             IObtenerClientes obtenerClientes,
             IEliminarCliente eliminarCliente,
-            IModificarCliente modificarCliente
+            IModificarCliente modificarCliente,
+            IObtenerClientesPerdidos obtenerClientesPerdidos
         )
         {
             AltaCliente = altaCliente;
@@ -31,6 +34,7 @@ namespace WebAPI.Controllers
             ObtenerClientes = obtenerClientes;
             EliminarCliente = eliminarCliente;
             ModificarCliente = modificarCliente;
+            ObtenerClientesPerdidos = obtenerClientesPerdidos;
         }
 
 
@@ -54,6 +58,28 @@ namespace WebAPI.Controllers
                 return StatusCode(500, new { Message = "Ocurrió un error al listar clientes", Details = ex.Message });
             }
         }
+
+        /// <summary>
+        /// Servicio que permite obtener listado de clientes con estado inactivo (perdidos)
+        /// </summary>
+        /// <returns></returns>
+        // GET: api/<ClienteController>
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [HttpGet("/Perdidos")]
+        public IActionResult GetPerdidos()
+        {
+            try
+            {
+                IEnumerable<DTOCliente> dtoClientes = ObtenerClientesPerdidos.GetClientesPerdidos();
+                return Ok(dtoClientes);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = "Ocurrió un error al listar clientes perdidos", Details = ex.Message });
+            }
+        }
+
 
         /// <summary>
         /// Servicio que permite obtener un cliente por su id

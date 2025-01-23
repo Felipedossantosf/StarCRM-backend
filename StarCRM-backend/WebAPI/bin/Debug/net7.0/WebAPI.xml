@@ -52,6 +52,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:WebAPI.Controllers.ClienteController.GetPerdidos">
+            <summary>
+            Servicio que permite obtener listado de clientes con estado inactivo (perdidos)
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:WebAPI.Controllers.ClienteController.Get(System.Int32)">
             <summary>
             Servicio que permite obtener un cliente por su id

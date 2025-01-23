@@ -13,6 +13,7 @@ namespace AccesoDatos.Interfaces
         IEnumerable<Comercial> FindByCondition(Expression<Func<Comercial, bool>> expression);
         IEnumerable<Cliente> FindAllClientes();
         IEnumerable<Proveedor> FindAllProveedores();
+        IEnumerable<Cliente> GetClientesPerdidos();
         void UpdateCliente(int id, Cliente cliente);
 
         void Update(int id, Comercial comercial);
