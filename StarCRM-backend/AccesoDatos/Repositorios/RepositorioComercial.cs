@@ -82,7 +82,17 @@ namespace AccesoDatos.Repositorios
             }
         }
 
-        
+        public IEnumerable<Cliente> GetClientesPerdidos()
+        {
+            try
+            {
+                return _db.Comerciales.OfType<Cliente>().Where(c => c.esInactivo == true).ToList();
+            }catch(Exception e)
+            {
+                throw new Exception($"Error al listar clientes perdidos en RepositorioComercial: {e.InnerException?.Message ?? e.Message}");
+            }
+            
+        }
 
         public void Remove(Comercial obj)
         {

@@ -101,6 +101,7 @@ namespace WebAPI
             builder.Services.AddScoped<IObtenerClientes, ObtenerClientes>();
             builder.Services.AddScoped<IEliminarCliente, EliminarCliente>();    
             builder.Services.AddScoped<IModificarCliente, ModificarCliente>();
+            builder.Services.AddScoped<IObtenerClientesPerdidos, ObtenerClientesPerdidos>();
 
             // Proveedor
             builder.Services.AddScoped<IAltaProveedor, AltaProveedor>();
