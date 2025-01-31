@@ -20,6 +20,7 @@ namespace WebAPI.Controllers
         public IModificarCliente ModificarCliente { get; set; }
         public IObtenerClientesPerdidos ObtenerClientesPerdidos { get; set; }
         public IObtenerClientesLibres ObtenerClientesLibres { get; set; }
+        public IObtenerClientesInactivos ObtenerClientesInactivos { get; set; }
 
         public ClienteController(
             IAltaCliente altaCliente,
@@ -28,7 +29,8 @@ namespace WebAPI.Controllers
             IEliminarCliente eliminarCliente,
             IModificarCliente modificarCliente,
             IObtenerClientesPerdidos obtenerClientesPerdidos,
-            IObtenerClientesLibres obtenerClientesLibres
+            IObtenerClientesLibres obtenerClientesLibres,
+            IObtenerClientesInactivos obtenerClientesInactivos
         )
         {
             AltaCliente = altaCliente;
@@ -38,6 +40,7 @@ namespace WebAPI.Controllers
             ModificarCliente = modificarCliente;
             ObtenerClientesPerdidos = obtenerClientesPerdidos;
             ObtenerClientesLibres = obtenerClientesLibres;
+            ObtenerClientesInactivos = obtenerClientesInactivos;
         }
 
 
@@ -80,6 +83,27 @@ namespace WebAPI.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500, new { Message = "Ocurrió un error al listar clientes perdidos", Details = ex.Message });
+            }
+        }
+
+        /// <summary>
+        /// Servicio que permite obtener listado de clientes cuya última carga tenga más de 6 meses de antiguedad
+        /// </summary>
+        /// <returns></returns>
+        // GET: api/<ClienteController>
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [HttpGet("/Inactivos")]
+        public IActionResult GetInactivos()
+        {
+            try
+            {
+                IEnumerable<DTOCliente> dtoClientes = ObtenerClientesInactivos.GetInactivos();
+                return Ok(dtoClientes);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = "Ocurrió un error al listar clientes inactivos", Details = ex.Message });
             }
         }
 

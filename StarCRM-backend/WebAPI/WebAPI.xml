@@ -58,6 +58,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:WebAPI.Controllers.ClienteController.GetInactivos">
+            <summary>
+            Servicio que permite obtener listado de clientes cuya última carga tenga más de 6 meses de antiguedad
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:WebAPI.Controllers.ClienteController.GetLibres">
             <summary>
             Servicio que permite obtener listado de clientes libres

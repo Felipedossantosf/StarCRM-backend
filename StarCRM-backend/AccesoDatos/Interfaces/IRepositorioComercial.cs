@@ -20,5 +20,6 @@ namespace AccesoDatos.Interfaces
         void Update(int id, Comercial comercial);
 
         void UpdateProveedor(int id, Proveedor proveedor);
+        IEnumerable<Cliente> GetClientesInactivos();
     }
 }
