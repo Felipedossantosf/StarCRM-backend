@@ -116,6 +116,7 @@ namespace AccesoDatos.Repositorios
                 cotizacion.destino = obj.destino;
                 cotizacion.condicionFlete = obj.condicionFlete;
                 cotizacion.modo = obj.modo;
+                cotizacion.tipo = obj.tipo;
                 cotizacion.mercaderia = obj.mercaderia;
                 cotizacion.peso = obj.peso;
                 cotizacion.volumen = obj.volumen;

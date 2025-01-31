@@ -30,6 +30,7 @@ namespace LogicaNegocio.Entidades
         public string destino { get; set; }
         public string condicionFlete { get; set; }
         public string modo { get; set; } // barco, aire, terrestre
+        public string tipo { get; set; }
         public string mercaderia { get; set; }
         public decimal peso { get; set; }
         public decimal volumen { get; set; }
