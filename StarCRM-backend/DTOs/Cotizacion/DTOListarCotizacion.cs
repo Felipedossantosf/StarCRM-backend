@@ -30,7 +30,7 @@ namespace DTOs.Cotizacion
         public decimal peso { get; set; }
         public decimal volumen { get; set; }
         public string terminosCondiciones { get; set; }
-
+        public string tipo { get; set; }
 
         public IEnumerable<DTOLineaCotizacion> lineas { get; set; }
     }

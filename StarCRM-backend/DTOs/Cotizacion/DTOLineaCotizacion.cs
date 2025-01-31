@@ -13,5 +13,6 @@ namespace DTOs.Cotizacion
         public int cant { get; set; }
         public decimal precioUnit { get; set; }
         public decimal totalLinea { get; set; }
+        public string? descripcion { get; set; }
     }
 }

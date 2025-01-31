@@ -131,7 +131,8 @@ namespace AccesoDatos.Repositorios
                 var lineaCotizacion = FindById(id);
                 if (lineaCotizacion == null)
                     throw new KeyNotFoundException($"No se encontró LineaCotización con el id: {id}");
-                
+
+                lineaCotizacion.descripcion = obj.descripcion;
                 lineaCotizacion.precioUnit = obj.precioUnit;
                 lineaCotizacion.totalLinea = obj.totalLinea;
                 lineaCotizacion.cant = obj.cant;

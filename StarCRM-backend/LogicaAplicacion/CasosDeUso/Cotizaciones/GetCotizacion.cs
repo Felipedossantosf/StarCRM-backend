@@ -34,6 +34,7 @@ namespace LogicaAplicacion.CasosDeUso.Cotizaciones
                 {
                     id = l.id,
                     cotizacion_id = l.cotizacion_id,
+                    descripcion = l.descripcion,
                     cant = l.cant,
                     precioUnit = l.precioUnit,
                     totalLinea = l.totalLinea
@@ -58,6 +59,7 @@ namespace LogicaAplicacion.CasosDeUso.Cotizaciones
                     origen = cotizacionBuscada.origen,
                     destino = cotizacionBuscada.destino,
                     condicionFlete = cotizacionBuscada.condicionFlete,
+                    tipo = cotizacionBuscada.tipo,
                     modo = cotizacionBuscada.modo,
                     mercaderia = cotizacionBuscada.mercaderia,
                     peso = cotizacionBuscada.peso,

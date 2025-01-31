@@ -48,6 +48,7 @@ namespace LogicaAplicacion.CasosDeUso.Cotizaciones
                     destino = c.destino,
                     condicionFlete = c.condicionFlete,
                     modo = c.modo,
+                    tipo = c.tipo,
                     mercaderia = c.mercaderia,
                     peso = c.peso,
                     volumen = c.volumen,
@@ -57,6 +58,7 @@ namespace LogicaAplicacion.CasosDeUso.Cotizaciones
                     {
                         id = l.id,
                         cotizacion_id = l.cotizacion_id,
+                        descripcion = l.descripcion,
                         precioUnit = l.precioUnit,
                         cant = l.cant,
                         totalLinea = l.totalLinea,

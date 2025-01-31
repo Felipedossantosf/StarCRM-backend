@@ -46,6 +46,7 @@ namespace LogicaAplicacion.CasosDeUso.Cotizaciones
                 cotizacionBuscada.destino = dtoCotizacion.destino;
                 cotizacionBuscada.condicionFlete = dtoCotizacion.condicionFlete;
                 cotizacionBuscada.modo = dtoCotizacion.modo;
+                cotizacionBuscada.tipo = dtoCotizacion.tipo;
                 cotizacionBuscada.mercaderia = dtoCotizacion.mercaderia;
                 cotizacionBuscada.peso = dtoCotizacion.peso;
                 cotizacionBuscada.volumen = dtoCotizacion.volumen;
@@ -82,6 +83,7 @@ namespace LogicaAplicacion.CasosDeUso.Cotizaciones
             RepoLineaCotizacion.CrearLineasDeCotizacion(lineas.Select(l => new LineaCotizacion()
             {
                 cotizacion_id = cotizacion_id,
+                descripcion = l.descripcion,
                 precioUnit = l.precioUnit,
                 cant = l.cant,
                 totalLinea = l.totalLinea
