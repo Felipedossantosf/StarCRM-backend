@@ -15,5 +15,8 @@ namespace DTOs.Eventos
         public bool esCarga { get; set; }
         public IEnumerable<int> idUsuarios { get; set; }
         public IEnumerable<int> idComerciales { get; set; }
+
+        // Para registro de actividad
+        public int usuario_id { get; set; }
     }
 }
