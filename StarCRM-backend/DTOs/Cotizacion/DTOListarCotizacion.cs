@@ -32,6 +32,6 @@ namespace DTOs.Cotizacion
         public string terminosCondiciones { get; set; }
         public string tipo { get; set; }
 
-        public IEnumerable<DTOLineaCotizacion> lineas { get; set; }
+        public IEnumerable<DTOLineaCotizacion> lineas { get; set; }                
     }
 }

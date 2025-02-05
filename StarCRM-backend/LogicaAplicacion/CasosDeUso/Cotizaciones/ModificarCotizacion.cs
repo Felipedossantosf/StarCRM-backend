@@ -15,10 +15,14 @@ namespace LogicaAplicacion.CasosDeUso.Cotizaciones
     {
         public IRepositorio<Cotizacion> RepoCotizacion { get; set; }
         public IRepositorioLineaCotizacion RepoLineaCotizacion { get; set; }
-        public ModificarCotizacion(IRepositorio<Cotizacion> repoCotizacion, IRepositorioLineaCotizacion repoLineaCotizacion)
+        public IRepositorio<Actividad> RepoActividad { get; set; }
+        public ModificarCotizacion(IRepositorio<Cotizacion> repoCotizacion,
+            IRepositorioLineaCotizacion repoLineaCotizacion,
+            IRepositorio<Actividad> repoActividad)
         {
             RepoCotizacion = repoCotizacion;
             RepoLineaCotizacion = repoLineaCotizacion;
+            RepoActividad = repoActividad;
         }
 
         public DTOListarCotizacion Modificar(int id, DTOListarCotizacion dtoCotizacion)
@@ -57,6 +61,14 @@ namespace LogicaAplicacion.CasosDeUso.Cotizaciones
 
                 // Actualizar las lineas cotización
                 ActualizarLineas(id, dtoCotizacion.lineas);
+
+                Actividad nuevaActividad = new Actividad()
+                {
+                    fecha = DateTime.Now,
+                    descripcion = $"Se modificó la cotización #{cotizacionBuscada.id}",
+                    usuario_id = dtoCotizacion.usuario_id
+                };
+                RepoActividad.Add(nuevaActividad);
 
                 return dtoCotizacion;
             }
