@@ -18,11 +18,16 @@ namespace LogicaAplicacion.CasosDeUso.Eventos
         public IRepositorio<Evento> RepoEvento { get; set; }
         public IRepositorioEventoUsuario RepoEventoUsuario { get; set; }
         public IRepositorioEventoComercial RepoEventoComercial { get; set; }
-        public ModificarEvento(IRepositorio<Evento> repoEvento, IRepositorioEventoUsuario repoEventoUsuario, IRepositorioEventoComercial repositorioEventoComercial)
+        public IRepositorio<Actividad> RepoActividad { get; set; }
+        public ModificarEvento(IRepositorio<Evento> repoEvento,
+            IRepositorioEventoUsuario repoEventoUsuario,
+            IRepositorioEventoComercial repositorioEventoComercial,
+            IRepositorio<Actividad> repoActividad)
         {
             RepoEvento = repoEvento;
             RepoEventoUsuario = repoEventoUsuario;
             RepoEventoComercial = repositorioEventoComercial;
+            RepoActividad = repoActividad;
         }
         public DTOModificarEvento Modificar(int id, DTOModificarEvento dtoEvento)
         {
@@ -49,6 +54,14 @@ namespace LogicaAplicacion.CasosDeUso.Eventos
                 // Actualizar las relaciones con comerciales
                 ActualizarComerciales(id, dtoEvento.comercialesId);
 
+                Actividad nuevaActividad = new Actividad()
+                {
+                    fecha = DateTime.Now,
+                    descripcion = $"Se modificó el evento: {dtoEvento.nombre}",
+                    usuario_id = dtoEvento.usuario_id
+                };
+                RepoActividad.Add(nuevaActividad);
+                    
                 return dtoEvento;
             }catch(ArgumentNullException e)
             {

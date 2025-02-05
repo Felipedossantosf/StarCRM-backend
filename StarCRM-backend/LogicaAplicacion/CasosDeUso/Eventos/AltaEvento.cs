@@ -16,16 +16,24 @@ namespace LogicaAplicacion.CasosDeUso.Eventos
         public IRepositorio<Evento> RepoEvento { get; set; }
         public IRepositorioEventoComercial RepoEventoComercial { get; set; }
         public IRepositorioEventoUsuario RepoEventoUsuario { get; set; }
+        public IRepositorio<Actividad> RepoActividad { get; set; }
 
-        public AltaEvento(IRepositorio<Evento> repoEvento, IRepositorioEventoComercial repoEventoComercial, IRepositorioEventoUsuario repoEventoUsuario)
+        public AltaEvento(IRepositorio<Evento> repoEvento,
+            IRepositorioEventoComercial repoEventoComercial,
+            IRepositorioEventoUsuario repoEventoUsuario,
+            IRepositorio<Actividad> repoActividad)
         {
             RepoEvento = repoEvento;
             RepoEventoComercial = repoEventoComercial;
             RepoEventoUsuario = repoEventoUsuario;
+            RepoActividad = repoActividad;
         }
 
         public DTOCrearEvento Alta(DTOCrearEvento dtoEvento)
         {
+            if(dtoEvento == null)
+                throw new ArgumentNullException(nameof(dtoEvento), "El Dto evento no puede ser nulo.");
+            
             try
             {
                 Evento nuevoEvento = new Evento()
@@ -52,6 +60,14 @@ namespace LogicaAplicacion.CasosDeUso.Eventos
                     comercial_id = comercialId
                 });
                 RepoEventoComercial.CrearEventoComerciales(eventosComercial);
+
+                Actividad nuevaActividad = new Actividad()
+                {
+                    fecha = DateTime.Now,
+                    descripcion = $"Nuevo evento: {nuevoEvento.nombre}",
+                    usuario_id = dtoEvento.usuario_id
+                };
+                RepoActividad.Add(nuevaActividad);
 
                 return dtoEvento;
             }catch(ArgumentNullException e)
