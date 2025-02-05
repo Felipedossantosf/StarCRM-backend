@@ -72,7 +72,7 @@ namespace WebAPI.Controllers
         // GET: api/<ClienteController>
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        [HttpGet("/Perdidos")]
+        [HttpGet("Perdidos")]
         public IActionResult GetPerdidos()
         {
             try
@@ -93,7 +93,7 @@ namespace WebAPI.Controllers
         // GET: api/<ClienteController>
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        [HttpGet("/Inactivos")]
+        [HttpGet("Inactivos")]
         public IActionResult GetInactivos()
         {
             try
@@ -114,7 +114,7 @@ namespace WebAPI.Controllers
         // GET: api/<ClienteController>
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        [HttpGet("/Libres")]
+        [HttpGet("Libres")]
         public IActionResult GetLibres()
         {
             try
