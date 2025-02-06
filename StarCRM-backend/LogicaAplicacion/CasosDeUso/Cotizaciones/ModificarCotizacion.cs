@@ -55,6 +55,10 @@ namespace LogicaAplicacion.CasosDeUso.Cotizaciones
                 cotizacionBuscada.peso = dtoCotizacion.peso;
                 cotizacionBuscada.volumen = dtoCotizacion.volumen;
                 cotizacionBuscada.terminosCondiciones = dtoCotizacion.terminosCondiciones;
+                cotizacionBuscada.incoterm = dtoCotizacion.incoterm;
+                cotizacionBuscada.bulto = dtoCotizacion.bulto;
+                cotizacionBuscada.precioMetro = dtoCotizacion.precioMetro;
+                cotizacionBuscada.Att = dtoCotizacion.Att;
 
                 RepoCotizacion.Update(id, cotizacionBuscada);
                 dtoCotizacion.id = cotizacionBuscada.id;
@@ -96,6 +100,7 @@ namespace LogicaAplicacion.CasosDeUso.Cotizaciones
             {
                 cotizacion_id = cotizacion_id,
                 descripcion = l.descripcion,
+                iva = l.iva,
                 precioUnit = l.precioUnit,
                 cant = l.cant,
                 totalLinea = l.totalLinea

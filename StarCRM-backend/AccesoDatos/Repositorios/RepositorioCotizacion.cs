@@ -121,6 +121,10 @@ namespace AccesoDatos.Repositorios
                 cotizacion.peso = obj.peso;
                 cotizacion.volumen = obj.volumen;
                 cotizacion.terminosCondiciones = obj.terminosCondiciones;
+                cotizacion.incoterm = obj.incoterm;
+                cotizacion.bulto = obj.bulto;
+                cotizacion.precioMetro = obj.precioMetro;
+                cotizacion.Att = obj.Att;
 
                 _db.SaveChanges();
             }

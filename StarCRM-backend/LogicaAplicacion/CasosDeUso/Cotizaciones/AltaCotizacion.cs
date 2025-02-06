@@ -55,7 +55,11 @@ namespace LogicaAplicacion.CasosDeUso.Cotizaciones
                     peso = dtoCotizacion.peso,
                     volumen = dtoCotizacion.volumen,
                     terminosCondiciones = dtoCotizacion.terminosCondiciones,
-                    tipo = dtoCotizacion.tipo
+                    tipo = dtoCotizacion.tipo,
+                    incoterm = dtoCotizacion.incoterm,
+                    bulto = dtoCotizacion.bulto,
+                    precioMetro = dtoCotizacion.precioMetro,
+                    Att = dtoCotizacion.Att
                 };
 
                 RepoCotizacion.Add(newCotizacion);
@@ -67,7 +71,8 @@ namespace LogicaAplicacion.CasosDeUso.Cotizaciones
                     cant = l.cant,
                     precioUnit = l.precioUnit,
                     totalLinea = l.totalLinea,
-                    descripcion = l.descripcion
+                    descripcion = l.descripcion,
+                    iva = l.iva,
                 });
 
                 RepoLineaCotizacion.CrearLineasDeCotizacion(lineas);
