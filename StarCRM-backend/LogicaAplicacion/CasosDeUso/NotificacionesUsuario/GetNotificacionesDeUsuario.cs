@@ -24,7 +24,7 @@ namespace LogicaAplicacion.CasosDeUso.NotificacionesUsuario
             try
             {
                 IEnumerable<NotificacionUsuario> notificacionesUser = RepoNotificacionUsuario.ObtenerNotificacionesPorUsuario(idUsuario);
-                if (notificacionesUser == null || !notificacionesUser.Any())
+                if (notificacionesUser == null)
                     throw new KeyNotFoundException($"No se encontraron notificaciones para el usuario con id: {idUsuario}");
 
                 IEnumerable<DTOListarNotificacion> dtoNotificacioens = notificacionesUser.Select(nu => new DTOListarNotificacion()
