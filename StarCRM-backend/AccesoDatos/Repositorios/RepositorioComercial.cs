@@ -229,7 +229,7 @@ namespace AccesoDatos.Repositorios
             try
             {
                 DateTime fechaLimite = DateTime.UtcNow.AddMonths(-6);
-                return _db.Comerciales.OfType<Cliente>().Where(c => c.fechaUltCarga != null && c.fechaUltCarga < fechaLimite).ToList();
+                return _db.Comerciales.OfType<Cliente>().Where(c => c.fechaUltCarga != null && c.esInactivo == false && c.fechaUltCarga < fechaLimite).ToList();
             }catch(Exception e)
             {
                 throw new Exception(e.InnerException?.Message ?? e.Message);
