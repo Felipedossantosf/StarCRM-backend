@@ -44,8 +44,16 @@ namespace WebAPI.Controllers
             {
                 var notificaciones = GetNotificacionesDeUsuario.GetNotificacionesDe(usuarioId);
                 if (!notificaciones.Any())
-                    return NotFound($"No se encontraron notificaciones para el usuario con id: {usuarioId}");
-                
+                {
+                    var response = new
+                    {
+                        message = $"No se encontraron notificaciones para el usuario con id: {usuarioId}",
+                        list = notificaciones
+                    };
+                    
+                    return Ok(response);
+                }
+
                 return Ok(notificaciones);
             }
             catch(KeyNotFoundException e)
