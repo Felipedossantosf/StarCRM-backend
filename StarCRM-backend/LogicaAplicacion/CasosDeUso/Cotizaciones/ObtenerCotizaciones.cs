@@ -53,6 +53,10 @@ namespace LogicaAplicacion.CasosDeUso.Cotizaciones
                     peso = c.peso,
                     volumen = c.volumen,
                     terminosCondiciones = c.terminosCondiciones,
+                    incoterm = c.incoterm,
+                    bulto = c.bulto,
+                    precioMetro = c.precioMetro,
+                    Att = c.Att,
 
                     lineas = lineas.Where(l => l.cotizacion_id == c.id).Select(l => new DTOLineaCotizacion()
                     {
@@ -60,6 +64,7 @@ namespace LogicaAplicacion.CasosDeUso.Cotizaciones
                         cotizacion_id = l.cotizacion_id,
                         descripcion = l.descripcion,
                         precioUnit = l.precioUnit,
+                        iva = l.iva,
                         cant = l.cant,
                         totalLinea = l.totalLinea,
                     })

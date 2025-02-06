@@ -35,6 +35,7 @@ namespace LogicaAplicacion.CasosDeUso.Cotizaciones
                     id = l.id,
                     cotizacion_id = l.cotizacion_id,
                     descripcion = l.descripcion,
+                    iva = l.iva,
                     cant = l.cant,
                     precioUnit = l.precioUnit,
                     totalLinea = l.totalLinea
@@ -65,6 +66,10 @@ namespace LogicaAplicacion.CasosDeUso.Cotizaciones
                     peso = cotizacionBuscada.peso,
                     volumen = cotizacionBuscada.volumen,
                     terminosCondiciones = cotizacionBuscada.terminosCondiciones,
+                    incoterm = cotizacionBuscada.incoterm,
+                    bulto = cotizacionBuscada.bulto,
+                    precioMetro = cotizacionBuscada.precioMetro,
+                    Att = cotizacionBuscada.Att,
                     lineas = dtoLineas
                 };
 

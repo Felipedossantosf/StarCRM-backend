@@ -31,7 +31,10 @@ namespace DTOs.Cotizacion
         public decimal volumen { get; set; }
         public string terminosCondiciones { get; set; }
         public string tipo { get; set; }
-
+        public string incoterm { get; set; }
+        public int bulto { get; set; }
+        public int precioMetro { get; set; }
+        public string Att { get; set; }
         public IEnumerable<DTOLineaCotizacion> lineas { get; set; }                
     }
 }
