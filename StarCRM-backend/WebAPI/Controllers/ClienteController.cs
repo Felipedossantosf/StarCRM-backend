@@ -266,7 +266,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id, [FromBody] int usuario_id)
+        public IActionResult Delete(int id, [FromQuery] int usuario_id)
         {
             try
             {
