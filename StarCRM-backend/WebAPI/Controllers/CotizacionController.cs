@@ -68,7 +68,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "FindByIdCotizacion")]
         public IActionResult Get(int id)
         {
             if (id < 1)
@@ -101,7 +101,7 @@ namespace WebAPI.Controllers
         /// </summary>
         /// <returns></returns>
         // POST api/<EventoController>
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPost]
@@ -110,7 +110,7 @@ namespace WebAPI.Controllers
             try
             {
                 AltaCotizacion.Alta(dtoCotizacion);
-                return Ok("Cotización creada con éxito.");
+                return CreatedAtRoute("FindByIdCotizacion", new { Id = dtoCotizacion.id }, dtoCotizacion);
             }
             catch (ArgumentNullException e)
             {
