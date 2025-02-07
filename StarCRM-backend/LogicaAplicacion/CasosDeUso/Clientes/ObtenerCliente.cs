@@ -48,6 +48,7 @@ namespace LogicaAplicacion.CasosDeUso.Clientes
                 Direccion = cliente.direccion,
                 SitioWeb = cliente.sitioWeb,
                 TipoComercial = cliente.TipoComercial,
+                FechaUltCarga = cliente.fechaUltCarga,
                 Zafras = cliente.zafras,
                 Notas = cliente.notas,
                 EsInactivo = cliente.esInactivo,
