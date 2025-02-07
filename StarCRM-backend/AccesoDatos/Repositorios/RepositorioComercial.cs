@@ -203,6 +203,7 @@ namespace AccesoDatos.Repositorios
                 clienteExistente.direccion = cliente.direccion;
                 clienteExistente.sitioWeb = cliente.sitioWeb;
                 clienteExistente.TipoComercial = cliente.TipoComercial;
+                clienteExistente.fechaUltCarga = cliente.fechaUltCarga;
                 clienteExistente.zafras = cliente.zafras;
                 clienteExistente.notas = cliente.notas;
                 clienteExistente.esInactivo = cliente.esInactivo;

@@ -47,6 +47,7 @@ namespace LogicaAplicacion.CasosDeUso.Clientes
                 clienteBuscado.direccion = dtoCliente.Direccion;
                 clienteBuscado.sitioWeb = dtoCliente.SitioWeb;
                 clienteBuscado.TipoComercial = dtoCliente.TipoComercial;
+                clienteBuscado.fechaUltCarga = dtoCliente.FechaUltCarga;
                 clienteBuscado.zafras = dtoCliente.Zafras;
                 clienteBuscado.notas = dtoCliente.Notas;
                 clienteBuscado.esInactivo = dtoCliente.EsInactivo;
